@@ -3,174 +3,317 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAPD Portal - Partnerschaft & Struktur</title>
+    <title>Los Angeles Police Department - Offizielles Portal</title>
     <style>
-        /* Base Styling */
+        /* --- INTEGRATED CSS STYLING --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #1a110b; /* Dunkelbraun/Schwarz-Ton aus den Screenshots */
-            color: #e5d3b3; /* Hellgoldene/Beige Schrift */
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
+            background-color: #f4f6f9; /* Helles LAPD-Weiß/Grau für den Hintergrund */
+            color: #333;
+            line-height: 1.6;
         }
 
-        .wrapper {
-            max-width: 1000px;
+        /* Notruf-Leiste */
+        .announcement-bar {
+            background-color: #d9534f;
+            color: white;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        /* Header-Bereich */
+        .main-header {
+            background-color: #0b1d33; /* LAPD Dunkelblau */
+            color: white;
+            padding: 20px 0;
+            border-bottom: 3px solid #cfb997; /* LAPD Gold */
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            height: 80px;
+            margin-right: 20px;
+        }
+
+        .header-text h1 {
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+        }
+
+        .motto {
+            color: #cfb997; /* LAPD Gold */
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #162a45; /* Mittleres LAPD Blau */
+            position: sticky;
+            top: 31px;
+            z-index: 999;
+        }
+
+        .navbar ul {
+            max-width: 1200px;
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            padding: 0 20px;
+        }
+
+        .navbar li a {
+            display: block;
+            color: #f4f6f9;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: background 0.2s;
+        }
+
+        .navbar li a:hover {
+            background-color: #cfb997; /* LAPD Gold */
+            color: #0b1d33; /* LAPD Dunkelblau */
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            max-width: 1200px;
+            margin: 20px auto;
+            height: 300px;
+            overflow: hidden;
+            background-color: #0b1d33;
+        }
+
+        .hero-image {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.6;
         }
 
-        /* --- PARTNERSCHAFTS SEKTION --- */
-        .section-badge {
-            color: #cfb997;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            background: rgba(207, 185, 151, 0.1);
-            padding: 4px 10px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 10px;
-            font-weight: bold;
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(11, 29, 51, 0.95));
+            color: white;
+            padding: 30px 20px;
         }
 
-        h1.section-title {
-            color: #cfb997;
-            font-size: 2.2rem;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .title-underline {
-            width: 50px;
-            height: 3px;
-            background-color: #cfb997;
-            margin-bottom: 30px;
-        }
-
-        .partnership-container {
-            display: flex;
+        /* Haupt-Layout */
+        .content-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
             gap: 30px;
-            background-color: #140d08; /* Etwas dunklerer Innenhintergrund */
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid rgba(207, 185, 151, 0.15);
-            align-items: flex-start;
-            margin-bottom: 40px;
+            padding: 0 20px;
         }
 
-        .logo-box {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            min-width: 180px;
+        .page-section {
+            background: white;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            scroll-margin-top: 90px;
+        }
+
+        .page-section h2 {
+            color: #0b1d33; /* LAPD Dunkelblau */
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        hr {
+            border: 0;
+            height: 2px;
+            background: #cfb997; /* LAPD Gold */
+            margin-bottom: 20px;
+        }
+
+        .news-card {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .news-card:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .news-card h3 {
+            color: #162a45;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        /* Partnerschafts-Box (LFA) */
+        .partnership-box {
             display: flex;
-            flex-direction: column;
+            gap: 20px;
+            background: #f8fafc;
+            border: 1px dashed #cfb997;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        .lfa-badge {
+            background: linear-gradient(135deg, #cc0000 0%, #800000 100%);
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-align: center;
+            border-radius: 4px;
+            min-width: 100px;
+            height: fit-content;
+            display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        /* Fiktives LFA Logo Styling als Gegenstück zur AfA (Blau/Rot umgekehrt oder Progressiv) */
-        .lfa-logo-mock {
-            text-align: center;
-            font-weight: 900;
-            font-size: 1.4rem;
-            color: #ffffff;
-            background: linear-gradient(135deg, #cc0000 0%, #990000 100%);
-            padding: 10px 15px;
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            padding: 25px;
             border-radius: 4px;
-            letter-spacing: 1px;
-            width: 100%;
-        }
-        .lfa-subtext {
-            color: #333;
-            font-size: 0.65rem;
-            font-weight: bold;
-            margin-top: 5px;
-            text-transform: uppercase;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
         }
 
-        .partnership-text {
-            flex: 1;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #d1c2a5;
-        }
-
-        .partnership-text p {
+        .sidebar h3 {
+            color: #0b1d33;
             margin-bottom: 15px;
+            border-left: 4px solid #cfb997;
+            padding-left: 10px;
         }
 
-        /* Zitat-Box */
-        .quote-box {
-            margin: 25px 0;
-            padding-left: 20px;
-            border-left: 3px solid #cfb997;
-            font-style: italic;
+        .sidebar ul {
+            list-style: none;
+            margin-bottom: 25px;
         }
 
-        .quote-text {
-            font-size: 1.05rem;
-            color: #ffffff;
-            margin-bottom: 8px;
+        .sidebar ul li a {
+            display: block;
+            padding: 10px 0;
+            color: #2d3748;
+            text-decoration: none;
+            border-bottom: 1px solid #edf2f7;
         }
 
-        .quote-author {
-            font-size: 0.8rem;
-            text-transform: uppercase;
+        .sidebar ul li a:hover {
             color: #cfb997;
-            letter-spacing: 1px;
         }
 
-        .thank-you-text {
-            color: #cfb997;
+        .wichtig-box {
+            background-color: #ebf8ff;
+            border-left: 4px solid #3182ce;
+            padding: 15px;
+            font-size: 0.9rem;
+        }
+
+        .wichtig-box h4 {
+            color: #2b6cb0;
+            margin-bottom: 5px;
+        }
+
+        .btn-apply {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: #0b1d33;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
+            border-radius: 4px;
+            border: 2px solid #cfb997;
+            transition: all 0.2s ease;
+            margin-top: 15px;
         }
 
-        /* --- FOOTER SEKTION --- */
+        .btn-apply:hover {
+            background-color: #cfb997;
+            color: #0b1d33;
+        }
+
+        /* --- STYLISH CO-DESIGN FOOTER IN LAPD SCHWARZ/GOLD --- */
         .custom-footer {
-            background-color: #0b0705;
-            border-top: 3px solid #cfb997;
-            padding: 40px 30px;
-            margin-top: 50px;
-            border-radius: 4px;
+            background-color: #0a0a0a; /* Tiefschwarz wie auf den Screenshots */
+            color: #a3a3a3;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 3px solid #cfb997; /* LAPD Gold-Kante */
+            margin-top: 60px;
         }
 
         .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.3fr 1fr 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
         }
 
         .footer-col h3 {
-            color: #cfb997;
-            font-size: 0.95rem;
+            color: #cfb997; /* Goldene Überschriften */
+            font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
         }
 
-        .footer-col p, .footer-col ul li {
-            font-size: 0.85rem;
-            color: #a89b84;
+        .footer-col p {
             margin-bottom: 10px;
-            line-height: 1.5;
+            font-size: 0.9rem;
+            color: #b3b3b3;
         }
 
         .footer-col ul {
             list-style: none;
         }
 
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
         .footer-col ul li a {
-            color: #a89b84;
+            color: #b3b3b3;
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -184,125 +327,236 @@
             font-weight: bold;
         }
 
-        /* Info Hinweis Box */
-        .disclaimer-box {
-            background: rgba(207, 185, 151, 0.05);
-            border: 1px solid rgba(207, 185, 151, 0.1);
-            padding: 20px;
-            border-radius: 6px;
-            margin-top: 40px;
+        .footer-disclaimer {
+            max-width: 1200px;
+            margin: 30px auto 0 auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(207, 185, 151, 0.1);
             font-size: 0.8rem;
-            line-height: 1.5;
-            color: #8c806c;
-        }
-
-        .disclaimer-title {
-            color: #cfb997;
-            font-weight: bold;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .footer-bottom-text {
+            color: #666666;
             text-align: center;
-            font-size: 0.8rem;
-            color: #6e6454;
-            margin-top: 30px;
-            font-style: italic;
         }
 
         @media (max-width: 768px) {
-            .partnership-container { flex-direction: column; align-items: center; }
-            .footer-grid { grid-template-columns: 1fr; }
+            .content-container { grid-template-columns: 1fr; }
+            .header-container { flex-direction: column; text-align: center; }
+            .logo { margin-right: 0; margin-bottom: 15px; }
+            .navbar ul { flex-direction: column; }
+            .navbar li a { text-align: center; padding: 10px; }
+            .sidebar { position: static; }
+            .footer-grid { grid-template-columns: 1fr; gap: 25px; }
+            .partnership-box { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <div class="wrapper">
+    <div class="announcement-bar">
+        <p><strong>NOTRUF: 911</strong> | Nicht-Notfälle: 4809294303</p>
+    </div>
 
-        <span class="section-badge">Partnerschaft</span>
-        <h1 class="section-title">Unsere Partnerschaft mit der LFA</h1>
-        <div class="title-underline"></div>
-
-        <div class="partnership-container">
-            <div class="logo-box">
-                <div class="lfa-logo-mock">Left For America</div>
-                <div class="lfa-subtext">LFA Bundesverband</div>
-            </div>
-            
-            <div class="partnership-text">
-                <p>Das Los Angeles Police Department ist stolz auf seine enge Partnerschaft mit der Organisation <strong>Left For America (LFA)</strong>. Als progressiver Gegenpol und direktes Kontrastprogramm zur Alternative für Amerika (AfA) setzt die LFA neue Impulse für eine sozial gerechte, transparente und bürgernahe Polizeiarbeit des Landes.</p>
-                
-                <p>Die LFA hat erkannt, dass eine zukunftsorientierte Strafverfolgungsbehörde nicht nur technologische Aufrüstung, sondern auch ein starkes Fundament in der Community benötigt. Durch gezielte Unterstützung und gemeinsame Programme hilft die LFA dem LAPD dabei, moderne Deeskalationsstrategien zu fördern, die Ausbildung unserer Officers auf ein neues Niveau zu heben und gleichzeitig eine hochentwickelte Flotte im Dienst der Bürger zu unterhalten.</p>
-                
-                <div class="quote-box">
-                    <p class="quote-text">„Sicherheit entsteht durch Vertrauen, Transparenz und soziale Verantwortung. Das LAPD leistet hervorragende Arbeit im Herzen der Gemeinde, und wir stehen fest an ihrer Seite, um diese Werte zu stärken.“</p>
-                    <p class="quote-author">— Left For America, Landesverband Kalifornien</p>
-                </div>
-                
-                <p class="thank-you-text">Wir danken der Left For America für ihr Vertrauen, ihre Unterstützung und ihr gemeinsames Engagement für ein sicheres und gerechtes Los Angeles.</p>
+    <header class="main-header">
+        <div class="header-container">
+            <img src="lapd-logo.png" alt="LAPD Emblem" class="logo">
+            <div class="header-text">
+                <h1>LOS ANGELES POLICE DEPARTMENT</h1>
+                <p class="motto">Zu schützen und zu dienen</p>
             </div>
         </div>
+    </header>
 
+    <nav class="navbar">
+        <ul>
+            <li><a href="#startseite">Startseite</a></li>
+            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#partnerschaft">Unsere Partner</a></li>
+            <li><a href="#dienststellen">Dienststellen</a></li>
+            <li><a href="#karriere">Karriere</a></li>
+            <li><a href="#presseportal">Presseportal</a></li>
+        </ul>
+    </nav>
 
-        <footer class="custom-footer">
-            <div class="footer-grid">
+    <section class="hero-section">
+        <img src="hero-banner.jpg" alt="LAPD Streifenwagen" class="hero-image">
+        <div class="hero-overlay">
+            <h2>Gemeinsam für die Sicherheit von Los Angeles</h2>
+            <p>Aktuelle Informationen, Ressourcen und Bürgerdienste der Stadtverwaltung.</p>
+        </div>
+    </section>
+
+    <main class="content-container">
+        
+        <div class="main-content-flow">
+
+            <section id="startseite" class="page-section">
+                <h2>Aktuelle Meldungen</h2>
+                <hr>
+                <div class="news-card" style="border-left: 4px solid #cfb997; padding-left: 15px;">
+                    <h3 style="color: #0b1d33;">Abschlussbericht: Bewaffneter Angriff auf Gerichtsgebäude an der Melrose Ave neutralisiert</h3>
+                    <p class="date">15. Juni 2026</p>
+                    <p>Das Los Angeles Police Department (LAPD) und das Los Angeles County Sheriff's Department (LASD) legen hiermit den aktuellen Ermittlungsstand zum Vorfall an der <strong>585 Melrose Ave</strong> vor.</p>
+                    <p style="margin-top: 10px;">Nach bisherigen Erkenntnissen handelte es sich um zwei koordinierte Tatverdächtige. Einer der Täter steuerte ein Kleinflugzeug in den Luftraum unmittelbar neben dem Justizgebäude, wobei das Luftfahrzeug abstürzte, ohne direkt Personen am Boden zu verletzen. Zeitgleich attackierte ein zweiter, bewaffneter Täter das Areal im Außenbereich. Bei dem Angreifer wurden eine Langwaffe des Typs IWI Tavor CTAR-21 sowie eine Kurzwaffe des Typs Glock 19 (Gen. 4) sichergestellt.</p>
+                    <p style="margin-top: 10px;">Durch das unmittelbare Erwidern des Feuers durch die Einsatzkräfte vor Ort wurden beide Tatverdächtige gestoppt. Sie erlagen noch am Einsatzort ihren schweren Schussverletzungen. Im Zuge des Vorfalls wurde ein Zivilist verletzt und medizinisch versorgt; es sind keine Todesopfer unter den Bürgern oder Einsatzkräften zu beklagen. Das Detektivbüro hat die Ermittlungen zu den Hintergründen übernommen. Die öffentliche Sicherheit im Stadtgebiet ist vollständig gewährleistet.</p>
+                </div>
+
+                <div class="news-card" style="margin-top: 25px;">
+                    <h3>Erhöhte Präsenz im Stadtgebiet</h3>
+                    <p class="date">15. Juni 2026</p>
+                    <p>Das Department gibt bekannt, dass die Fußpatrouillen in den zentralen Bezirken zur Urlaubszeit verstärkt werden. Bürger werden gebeten, verdächtige Aktivitäten sofort zu melden.</p>
+                </div>
+            </section>
+
+            <section id="ueber-uns" class="page-section">
+                <h2>Über uns – Geschichte & Führung</h2>
+                <hr>
+                <p>Das LAPD wurde 1869 gegründet und schützt heute rund 4 Millionen Einwohner. Unser Leitbild basiert auf Integrität, Respekt und professioneller Pflichterfüllung im Sinne der Gemeinde.</p>
                 
-                <div class="footer-col">
-                    <h3>Über das LAPD</h3>
-                    <p>Das Los Angeles Police Department schützt das Stadtgebiet von Los Angeles. Mit Fokus auf Integrität und Bürgernähe sorgen wir rund um die Uhr für Sicherheit.</p>
-                    <p style="margin-top: 15px;"><span class="footer-highlight">Captain:</span> Ethan Walker</p>
-                    <p><span class="footer-highlight">Sergeant II:</span> Oliver Lopez</p>
-                    <p><span class="footer-highlight">Sergeant I:</span> Jordan McDonnell</p>
-                    <p><span class="footer-highlight">Detective III:</span> Jason Reed</p>
+                <br>
+                <h3>Aktuelle Dienststellenleitung</h3>
+                <br>
+                <div class="news-card">
+                    <h3>Captain – Ethan Walker</h3>
+                    <p class="date">Dienststellenleitung / Commanding Officer</p>
+                    <p>Verantwortlich für die strategische Ausrichtung der Dienststelle und die Koordination mit der übergeordneten Stadtverwaltung.</p>
                 </div>
-
-                <div class="footer-col">
-                    <h3>Schnellzugriff</h3>
-                    <ul>
-                        <li><a href="#">Startseite</a></li>
-                        <li><a href="#">Auftrag</a></li>
-                        <li><a href="#">Personal</a></li>
-                        <li><a href="#">Presse</a></li>
-                        <li><a href="#">LFA</a></li>
-                        <li><a href="#">Karriere</a></li>
-                    </ul>
+                <div class="news-card">
+                    <h3>Sergeant II – Oliver Lopez</h3>
+                    <p class="date">Patrol Division & Metropolitan Division (SWAT) Co-Coordinator</p>
+                    <p>Fungiert als zentrale Schnittstelle zwischen dem regulären Streifendienst und den taktischen Sondereinheiten. Leitet operative Einsätze bei speziellen Gefahrenlagen und Geiselszenarien.</p>
                 </div>
-
-                <div class="footer-col">
-                    <h3>Notruf & Kontakt</h3>
-                    <p><span class="footer-highlight">Notruf:</span> 911</p>
-                    <p><span class="footer-highlight">Nicht-Notfall:</span> 4809294303</p>
-                    <p><span class="footer-highlight">E-Mail:</span> contact@lapd-no-rp.com</p>
-                    <p style="margin-top: 15px;"><a href="#" style="color: #cfb997; text-decoration: underline;">Discord Server</a></p>
+                <div class="news-card">
+                    <h3>Sergeant I – Jordan McDonnell</h3>
+                    <p class="date">Schichtleitung & Außendienstüberwachung / Field Supervisor</p>
+                    <p>Zuständig für die aktive Überwachung des Streifendienstes auf den Straßen sowie die Einsatzkoordination der Einheiten direkt vor Ort.</p>
                 </div>
-
-                <div class="footer-col">
-                    <h3>Rechtliches</h3>
-                    <ul>
-                        <li><a href="#">Datenschutz</a></li>
-                        <li><a href="#">Impressum</a></li>
-                        <li><a href="#">Barrierefreiheit</a></li>
-                        <li><a href="#">Nutzungsbedingungen</a></li>
-                    </ul>
+                <div class="news-card">
+                    <h3>Detective III – Jason Reed</h3>
+                    <p class="date">Ermittlungsdienstleitung / Squad Leader Detective Bureau</p>
+                    <p>Leitet die Kriminalpolizei der Dienststelle, überwacht die Beweissicherung und führt die Ermittlungen bei schweren Straftaten an.</p>
                 </div>
+            </section>
 
+            <section id="partnerschaft" class="page-section">
+                <h2>Strategische Kooperationen</h2>
+                <hr>
+                <p>Um eine zukunftsorientierte, bürgernahe und transparente Polizeiarbeit zu gewährleisten, arbeitet das Department eng mit ausgewählten Partnerverbänden zusammen.</p>
+                
+                <div class="partnership-box">
+                    <div class="lfa-badge">LFA</div>
+                    <div>
+                        <h3 style="color: #0b1d33; margin-bottom: 5px;">Left For America (LFA)</h3>
+                        <p style="font-size: 0.95rem; color: #4a5568;">Als offizieller Partner unterstützt uns die <strong>Left For America (LFA)</strong> im Bereich der infrastrukturellen Förderung und des transparenten Community-Policings. Die LFA versteht sich als linkes, progressives Gegenstück zur Alternative für Amerika (AfA) und fördert aktiv soziale Ausgewogenheit, bürgernahe Deeskalationsprojekte sowie den direkten, demokratischen Austausch zwischen den Einwohnern und den Einheiten des Departments.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="dienststellen" class="page-section">
+                <h2>Dienststellen & Standorte</h2>
+                <hr>
+                <div class="news-card" style="background-color: #fafbfc; padding: 15px; border: 1px solid #e2e8f0;">
+                    <h3>Revierhauptwache (Division Headquarters)</h3>
+                    <p class="date" style="color: #0b1d33; font-weight: bold;">📍 217 Venice Blvd, Los Angeles, CA 90015</p>
+                    <p>Die Hauptwache ist die zentrale Anlaufstelle für die Bevölkerung im Sektor. Geöffnet 24 Stunden am Tag für Notfallanzeigen und Bürgerdienste.</p>
+                </div>
+                <br>
+                <h3>Spezialkräfte des Departments</h3>
+                <p>Über das lokale Revier hinaus kooperiert die Dienststelle eng mit den zentralisierten Ressourcen der Behörde:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Metropolitan Division:</strong> Beinhaltet die taktischen Zugriffselemente (SWAT) sowie die K9-Hundeführerstaffel.</li>
+                    <li><strong>Air Support Division:</strong> Bietet Luftaufklärung und taktische Unterstützung bei Verfolgungen.</li>
+                    <li><strong>Detective Bureau:</strong> Aufgeteilt in Spezialsquads wie die Robbery-Homicide Division (RHD) und Gangs/Narcotics (GND).</li>
+                </ul>
+            </section>
+
+            <section id="karriere" class="page-section">
+                <h2>Karriere beim LAPD</h2>
+                <hr>
+                <p>Die Recruitment Section sucht fortlaufend qualifizierte Bewerber für den Dienst an der Academy. Der Polizeidienst erfordert außergewöhnliche Fitness, mentale Stärke, Teamfähigkeit und ein einwandfreies Führungszeugnis.</p>
+                <br>
+                <h3>Das Auswahlverfahren:</h3>
+                <ol style="margin-left: 20px; margin-top: 10px;">
+                    <li>Schriftlicher Eignungstest (Online-Vorverfahren)</li>
+                    <li>Physischer Qualifikationstest (PFQ - Sporttest)</li>
+                    <li>Gründliche Hintergrundüberprüfung (Background Check) & psychologisches Gutachten</li>
+                </ol>
+            </section>
+
+            <section id="presseportal" class="page-section">
+                <h2>Presseportal (Media Relations)</h2>
+                <hr>
+                <div class="news-card">
+                    <h3>Zeugenaufruf nach Vorfall im West Bureau</h3>
+                    <p class="date">14. Juni 2026</p>
+                    <p>Die Ermittler bitten die Bevölkerung um sachdienliche Hinweise zu einem Vorfall nahe dem Santa Monica Boulevard. Hinweise nimmt jede lokale Dienststelle entgegen.</p>
+                </div>
+            </section>
+
+        </div>
+
+        <aside class="sidebar">
+            <h3>Online-Dienste</h3>
+            <ul>
+                <li><a href="#karriere">Straftat anzeigen (Online)</a></li>
+                <li><a href="#dienststellen">Wache finden</a></li>
+            </ul>
+
+            <div class="wichtig-box" style="margin-bottom: 20px; background-color: #f0fff4; border-left-color: #38a169;">
+                <h4 style="color: #276749;">Bewerbungsphase</h4>
+                <p>Das Portal nimmt derzeit aktive Bewerbungen entgegen.</p>
+            </div>
+            
+            <a href="HIER_DEIN_FORMULAR_LINK" class="btn-apply" target="_blank">Jetzt Online Bewerben</a>
+        </aside>
+
+    </main>
+
+    <footer class="custom-footer">
+        <div class="footer-grid">
+            
+            <div class="footer-col">
+                <h3>Über das LAPD</h3>
+                <p>Das Los Angeles Police Department dient über 4 Millionen Menschen im Stadtgebiet von Los Angeles und sorgt für den Schutz von Recht und Ordnung.</p>
+                <p style="margin-top: 15px;"><span class="footer-highlight">Captain:</span> Ethan Walker</p>
+                <p><span class="footer-highlight">Sergeant II:</span> Oliver Lopez</p>
+                <p><span class="footer-highlight">Sergeant I:</span> Jordan McDonnell</p>
+                <p><span class="footer-highlight">Detective III:</span> Jason Reed</p>
             </div>
 
-            <div class="disclaimer-box">
-                <p class="disclaimer-title">Wichtiger Hinweis:</p>
-                Dies ist eine fiktionale Webseite für den Roleplay-Server „Night of Roleplay“ (NO-RP). Diese Seite hat keine Verbindung zum echten Los Angeles Police Department. Alle Inhalte, Personen und Organisationen dienen ausschliesslich Roleplay-Zwecken. Die dargestellte „Left For America“ ist eine fiktive Gruppierung im Rahmen des Rollenspiels. Kein Teil der hier dargestellten Informationen ist real.
+            <div class="footer-col">
+                <h3>Schnellzugriff</h3>
+                <ul>
+                    <li><a href="#startseite">Startseite</a></li>
+                    <li><a href="#ueber-uns">Auftrag & Personal</a></li>
+                    <li><a href="#partnerschaft">Partner (LFA)</a></li>
+                    <li><a href="#dienststellen">Dienststellen</a></li>
+                    <li><a href="#karriere">Karriere</a></li>
+                </ul>
             </div>
 
-            <div class="footer-bottom-text">
-                © 2026 Night of Roleplay — LAPD Roleplay Division<br>
-                „Zu schützen und zu dienen“<br>
-                <span style="color: #cfb997;">Finanziert und unterstützt durch die Left For America (LFA) — Night of Roleplay 3.0</span>
+            <div class="footer-col">
+                <h3>Notruf & Kontakt</h3>
+                <p><span class="footer-highlight">Notruf:</span> 911</p>
+                <p><span class="footer-highlight">Nicht-Notfall:</span> 4809294303</p>
+                <p><span class="footer-highlight">Partnerverband:</span> Left For America</p>
+                <p style="margin-top: 15px;"><a href="HIER_DISCORD_LINK" target="_blank" style="color: #cfb997; text-decoration: underline;">Discord Server</a></p>
             </div>
-        </footer>
 
-    </div>
+            <div class="footer-col">
+                <h3>Rechtliches</h3>
+                <ul>
+                    <li><a href="#">Datenschutz</a></li>
+                    <li><a href="#">Impressum</a></li>
+                    <li><a href="#">Barrierefreiheit</a></li>
+                    <li><a href="#">Nutzungsbedingungen</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-disclaimer">
+            <p>© 2026 City of Los Angeles / Los Angeles Police Department. Unterstützt im Rahmen der bürgernahen Aufklärungsinitiative durch die LFA (Left For America). Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
