@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Los Angeles Police Department - Offizielles Portal</title>
     <style>
-        /* --- INTEGRATED CSS STYLING --- */
+        /* --- ALLGEMEINES STYLING (LAPD-FARBSCHEMA) --- */
         * {
             margin: 0;
             padding: 0;
@@ -96,7 +96,7 @@
             color: #0b1d33;
         }
 
-        /* Hero Section */
+        /* Hero Banner */
         .hero-section {
             position: relative;
             max-width: 1200px;
@@ -123,7 +123,7 @@
             padding: 30px 20px;
         }
 
-        /* Haupt-Layout */
+        /* Haupt-Layout-Struktur */
         .content-container {
             max-width: 1200px;
             margin: 20px auto;
@@ -148,6 +148,13 @@
             font-size: 1.8rem;
         }
 
+        .page-section h4.section-subtitle {
+            font-size: 1rem;
+            color: #a3a3a3;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
         hr {
             border: 0;
             height: 2px;
@@ -155,6 +162,114 @@
             margin-bottom: 20px;
         }
 
+        /* --- STYLING: MITARBEITERLISTE (CHARACTER CARDS) --- */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .staff-card {
+            background-color: #0b1d33;
+            color: white;
+            border-radius: 6px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            border: 1px solid rgba(207, 185, 151, 0.1);
+        }
+
+        .staff-img-box {
+            width: 140px;
+            min-width: 140px;
+            background-color: #162a45;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .staff-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-no-photo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #cfb997;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .staff-no-photo span {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #718096;
+            margin-top: 5px;
+        }
+
+        .staff-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .staff-role {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #cfb997;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .staff-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .staff-assignment {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .staff-bio {
+            font-size: 0.85rem;
+            color: #cbd5e0;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .staff-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .staff-badge {
+            background-color: rgba(207, 185, 151, 0.15);
+            color: #cfb997;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid rgba(207, 185, 151, 0.3);
+            font-weight: bold;
+        }
+
+        /* News & Kooperationen */
         .news-card {
             margin-bottom: 25px;
             padding-bottom: 15px;
@@ -178,7 +293,6 @@
             margin-bottom: 10px;
         }
 
-        /* Partnerschafts-Box (LFA) */
         .partnership-box {
             display: flex;
             gap: 20px;
@@ -203,10 +317,9 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #cfb997;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        /* Sidebar */
+        /* Sidebar Elements */
         .sidebar {
             background: white;
             padding: 25px;
@@ -242,14 +355,14 @@
         }
 
         .wichtig-box {
-            background-color: #ebf8ff;
-            border-left: 4px solid #3182ce;
+            background-color: #f0fff4;
+            border-left: 4px solid #38a169;
             padding: 15px;
             font-size: 0.9rem;
         }
 
         .wichtig-box h4 {
-            color: #2b6cb0;
+            color: #276749;
             margin-bottom: 5px;
         }
 
@@ -273,10 +386,10 @@
             color: #0b1d33;
         }
 
-        /* --- VISUELL ANGEPASSTER EXAKTER REPLICATED FOOTER --- */
+        /* --- FOOTER-REPLIKATION IM LAPD STYLE --- */
         .custom-footer {
-            background-color: #0a0a0a; /* Tiefschwarzer Bildhintergrund */
-            color: #a3a3a3;
+            background-color: #08111c; /* Sehr dunkles LAPD-Blau-Schwarz */
+            color: #a0aec0;
             padding: 60px 20px 40px 20px;
             font-size: 0.9rem;
             border-top: 3px solid #cfb997;
@@ -293,7 +406,7 @@
         }
 
         .footer-col h3 {
-            color: #cfb997; /* Goldener Titelton aus den Screenshots */
+            color: #cfb997; /* Markanter Gold-Farbton aus den Vorlagen */
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -303,7 +416,7 @@
         .footer-col p {
             margin-bottom: 10px;
             font-size: 0.9rem;
-            color: #b3b3b3;
+            color: #cbd5e0;
         }
 
         .footer-col ul {
@@ -315,7 +428,7 @@
         }
 
         .footer-col ul li a {
-            color: #b3b3b3;
+            color: #cbd5e0;
             text-decoration: none;
             transition: color 0.2s;
         }
@@ -329,11 +442,11 @@
             font-weight: bold;
         }
 
-        /* Der Kasten "WICHTIGER HINWEIS" aus dem Screenshot */
+        /* Kasten "WICHTIGER HINWEIS" exakt adaptiert */
         .footer-notice-box {
             max-width: 1200px;
             margin: 0 auto 40px auto;
-            background-color: rgba(20, 20, 20, 0.6);
+            background-color: rgba(11, 29, 51, 0.4);
             border: 1px solid rgba(207, 185, 151, 0.2);
             border-radius: 6px;
             padding: 20px;
@@ -342,7 +455,7 @@
 
         .footer-notice-box p {
             font-size: 0.85rem;
-            color: #858585;
+            color: #a0aec0;
             line-height: 1.5;
         }
 
@@ -351,7 +464,7 @@
             font-weight: bold;
         }
 
-        /* Unterer Trennbereich & Slogans */
+        /* Unterer Slogan & Sponsoren-Verweis */
         .footer-bottom-credits {
             max-width: 1200px;
             margin: 0 auto;
@@ -361,14 +474,14 @@
         }
 
         .footer-copyright {
-            color: #737373;
+            color: #718096;
             font-size: 0.85rem;
             margin-bottom: 5px;
         }
 
         .footer-slogan {
             font-style: italic;
-            color: #a3a3a3;
+            color: #cbd5e0;
             font-size: 0.9rem;
             margin-bottom: 15px;
         }
@@ -379,6 +492,11 @@
             font-size: 0.85rem;
         }
 
+        /* Responsive Anpassungen */
+        @media (max-width: 900px) {
+            .staff-grid { grid-template-columns: 1fr; }
+        }
+
         @media (max-width: 768px) {
             .content-container { grid-template-columns: 1fr; }
             .header-container { flex-direction: column; text-align: center; }
@@ -387,7 +505,6 @@
             .navbar li a { text-align: center; padding: 10px; }
             .sidebar { position: static; }
             .footer-grid { grid-template-columns: 1fr; gap: 25px; }
-            .partnership-box { flex-direction: column; align-items: center; text-align: center; }
         }
     </style>
 </head>
@@ -410,7 +527,7 @@
     <nav class="navbar">
         <ul>
             <li><a href="#startseite">Startseite</a></li>
-            <li><a href="#ueber-uns">Über uns</a></li>
+            <li><a href="#personal">Personal</a></li>
             <li><a href="#partnerschaft">Unsere Partner</a></li>
             <li><a href="#dienststellen">Dienststellen</a></li>
             <li><a href="#karriere">Karriere</a></li>
@@ -434,60 +551,126 @@
                 <h2>Aktuelle Meldungen</h2>
                 <hr>
                 <div class="news-card" style="border-left: 4px solid #cfb997; padding-left: 15px;">
-                    <h3 style="color: #0b1d33;">Abschlussbericht: Bewaffneter Angriff auf Gerichtsgebäude an der Melrose Ave neutralisiert</h3>
+                    <h3>Abschlussbericht: Bewaffneter Angriff auf Gerichtsgebäude an der Melrose Ave neutralisiert</h3>
                     <p class="date">15. Juni 2026</p>
                     <p>Das Los Angeles Police Department (LAPD) und das Los Angeles County Sheriff's Department (LASD) legen hiermit den aktuellen Ermittlungsstand zum Vorfall an der <strong>585 Melrose Ave</strong> vor.</p>
-                    <p style="margin-top: 10px;">Nach bisherigen Erkenntnissen handelte es sich um zwei koordinierte Tatverdächtige. Einer der Täter steuerte ein Kleinflugzeug in den Luftraum unmittelbar neben dem Justizgebäude, wobei das Luftfahrzeug abstürzte, ohne direkt Personen am Boden zu verletzen. Zeitgleich attackierte ein zweiter, bewaffneter Täter das Areal im Außenbereich. Bei dem Angreifer wurden eine Langwaffe des Typs IWI Tavor CTAR-21 sowie eine Kurzwaffe des Typs Glock 19 (Gen. 4) sichergestellt.</p>
-                    <p style="margin-top: 10px;">Durch das unmittelbare Erwidern des Feuers durch die Einsatzkräfte vor Ort wurden beide Tatverdächtige gestoppt. Sie erlagen noch am Einsatzort ihren schweren Schussverletzungen. Im Zuge des Vorfalls wurde ein Zivilist verletzt und medizinisch versorgt; es sind keine Todesopfer unter den Bürgern oder Einsatzkräften zu beklagen. Das Detektivbüro hat die Ermittlungen zu den Hintergründen übernommen. Die öffentliche Sicherheit im Stadtgebiet ist vollständig gewährleistet.</p>
-                </div>
-
-                <div class="news-card" style="margin-top: 25px;">
-                    <h3>Erhöhte Präsenz im Stadtgebiet</h3>
-                    <p class="date">15. Juni 2026</p>
-                    <p>Das Department gibt bekannt, dass die Fußpatrouillen in den zentralen Bezirken zur Urlaubszeit verstärkt werden. Bürger werden gebeten, verdächtige Aktivitäten sofort zu melden.</p>
+                    <p style="margin-top: 10px;">Nach bisherigen Erkenntnissen handelte es sich um zwei koordinierte Tatverdächtige. Einer der Täter steuerte ein Kleinflugzeug in den Luftraum, das Luftfahrzeug abstürzte. Zeitgleich attackierte ein zweiter, bewaffneter Täter das Areal im Außenbereich. Bei dem Angreifer wurden eine Langwaffe des Typs IWI Tavor CTAR-21 sowie eine Kurzwaffe des Typs Glock 19 sichergestellt.</p>
+                    <p style="margin-top: 10px;">Durch das unmittelbare Erwidern des Feuers durch die Einsatzkräfte vor Ort wurden beide Tatverdächtige gestoppt. Sie erlagen noch am Einsatzort ihren schweren Schussverletzungen. Es sind keine Todesopfer unter den Bürgern oder Einsatzkräften zu beklagen. Das Detektivbüro hat die Ermittlungen übernommen.</p>
                 </div>
             </section>
 
-            <section id="ueber-uns" class="page-section">
-                <h2>Über uns – Geschichte & Führung</h2>
+            <section id="personal" class="page-section">
+                <h2>Personal des LAPD</h2>
+                <h4 class="section-subtitle">Hinter jedem Stern steht ein Mensch, der täglich sein Bestes gibt.</h4>
                 <hr>
-                <p>Das LAPD wurde 1869 gegründet und schützt heute rund 4 Millionen Einwohner. Unser Leitbild basiert auf Integrität, Respekt und professioneller Pflichterfüllung im Sinne der Gemeinde.</p>
                 
-                <br>
-                <h3>Aktuelle Dienststellenleitung</h3>
-                <br>
-                <div class="news-card">
-                    <h3>Captain – Ethan Walker</h3>
-                    <p class="date">Dienststellenleitung / Commanding Officer</p>
-                    <p>Verantwortlich für die strategische Ausrichtung der Dienststelle und die Koordination mit der übergeordneten Stadtverwaltung.</p>
-                </div>
-                <div class="news-card">
-                    <h3>Sergeant II – Oliver Lopez</h3>
-                    <p class="date">Patrol Division & Metropolitan Division (SWAT) Co-Coordinator</p>
-                    <p>Fungiert als zentrale Schnittstelle zwischen dem regulären Streifendienst und den taktischen Sondereinheiten. Leitet operative Einsätze bei speziellen Gefahrenlagen und Geiselszenarien.</p>
-                </div>
-                <div class="news-card">
-                    <h3>Sergeant I – Jordan McDonnell</h3>
-                    <p class="date">Schichtleitung & Außendienstüberwachung / Field Supervisor</p>
-                    <p>Zuständig für die active Überwachung des Streifendienstes auf den Straßen sowie die Einsatzkoordination der Einheiten direkt vor Ort.</p>
-                </div>
-                <div class="news-card">
-                    <h3>Detective III – Jason Reed</h3>
-                    <p class="date">Ermittlungsdienstleitung / Squad Leader Detective Bureau</p>
-                    <p>Leitet die Kriminalpolizei der Dienststelle, überwacht die Beweissicherung und führt die Ermittlungen bei schweren Straftaten an.</p>
+                <div class="staff-grid">
+                    
+                    <div class="staff-card">
+                        <div class="staff-img-box">
+                            <img src="sheriff_john_long.png" alt="Captain Ethan Walker">
+                        </div>
+                        <div class="staff-info">
+                            <div>
+                                <p class="staff-role">Captain</p>
+                                <p class="staff-name">Ethan Walker</p>
+                                <p class="staff-assignment">Leiter des Los Angeles Police Department</p>
+                                <p class="staff-bio">Mit umfassender taktischer Erfahrung und enger Partnerschaft mit der LFA führt er das LAPD mit strategischem Fokus und fester Hand.</p>
+                            </div>
+                            <div class="staff-badges">
+                                <span class="staff-badge">15+ Jahre</span>
+                                <span class="staff-badge">Medal of Valor</span>
+                                <span class="staff-badge">LFA-Mitglied</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-img-box">
+                            <img src="lt_davis.png" alt="Sergeant II Oliver Lopez">
+                        </div>
+                        <div class="staff-info">
+                            <div>
+                                <p class="staff-role">Sergeant II</p>
+                                <p class="staff-name">Oliver Lopez</p>
+                                <p class="staff-assignment">Patrol Division & SWAT Co-Coordinator</p>
+                                <p class="staff-bio">Dienstältester Supervisor des Departments. Verkörpert Präzision, Disziplin und taktische Leidenschaft in Sondereinsatzlagen.</p>
+                            </div>
+                            <div class="staff-badges">
+                                <span class="staff-badge">10+ Jahre</span>
+                                <span class="staff-badge">Kommandant SWAT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-img-box">
+                            <img src="lt_hartmann.png" alt="Sergeant I Jordan McDonnell">
+                        </div>
+                        <div class="staff-info">
+                            <div>
+                                <p class="staff-role">Sergeant I</p>
+                                <p class="staff-name">Jordan McDonnell</p>
+                                <p class="staff-assignment">Leiter der Ausbildungsabteilung</p>
+                                <p class="staff-bio">Bringt höchste strukturelle Gründlichkeit ins Training. Unter seiner Leitung wurden die Ausbildungsstandards grundlegend modernisiert.</p>
+                            </div>
+                            <div class="staff-badges">
+                                <span class="staff-badge">Ausbildungsleitung</span>
+                                <span class="staff-badge">Field Supervisor</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-img-box">
+                            <img src="deputy_ferguson.png" alt="Detective III Jason Reed">
+                        </div>
+                        <div class="staff-info">
+                            <div>
+                                <p class="staff-role">Detective III</p>
+                                <p class="staff-name">Jason Reed</p>
+                                <p class="staff-assignment">Ermittlungsdienstleitung / Squad Leader</p>
+                                <p class="staff-bio">Frisch befördert leitet er das Detective Bureau, führt die Ermittlungen bei schweren Straftaten an und sichert Beweise auf den Straßen von LA.</p>
+                            </div>
+                            <div class="staff-badges">
+                                <span class="staff-badge">Ermittler 2026</span>
+                                <span class="staff-badge">Detektivbüro</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="staff-card">
+                        <div class="staff-img-box">
+                            <div class="staff-no-photo">
+                                MJ
+                                <span>Kein Foto</span>
+                            </div>
+                        </div>
+                        <div class="staff-info">
+                            <div>
+                                <p class="staff-role">Officer III</p>
+                                <p class="staff-name">Mitch Juares</p>
+                                <p class="staff-assignment">Streifendenst — Sektor West</p>
+                                <p class="staff-bio">Erfahrener Streifenbeamter mit absoluter Leidenschaft für die Gemeinde. Schützt täglich mit Entschlossenheit die Bürger von Los Angeles.</p>
+                            </div>
+                            <div class="staff-badges">
+                                <span class="staff-badge">Streifendienst</span>
+                                <span class="staff-badge">LAPD</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
             <section id="partnerschaft" class="page-section">
-                <h2>Strategische Kooperationen</h2>
+                <h2>Unsere Partnerschaft mit der LFA</h2>
                 <hr>
-                <p>Um eine zukunftsorientierte, bürgernahe und transparente Polizeiarbeit zu gewährleisten, arbeitet das Department eng mit ausgewählten Partnerverbänden zusammen.</p>
-                
                 <div class="partnership-box">
                     <div class="lfa-badge">LFA</div>
                     <div>
                         <h3 style="color: #0b1d33; margin-bottom: 5px;">Left For America (LFA)</h3>
-                        <p style="font-size: 0.95rem; color: #4a5568;">Als offizieller Partner unterstützt uns die <strong>Left For America (LFA)</strong> im Bereich der infrastrukturellen Förderung und des transparenten Community-Policings. Die LFA versteht sich als linkes, progressives Gegenstück zur Alternative für Amerika (AfA) und fördert aktiv soziale Ausgewogenheit, bürgernahe Deeskalationsprojekte sowie den direkten, demokratischen Austausch zwischen den Einwohnern und den Einheiten des Departments.</p>
+                        <p style="font-size: 0.95rem; color: #4a5568;">Als Partner unterstützt uns die <strong>LFA</strong> im Bereich des transparenten Community-Policings. Sie fördert Deeskalationsprojekte sowie den direkten, demokratischen Austausch zwischen den Einwohnern und dem Department.</p>
                     </div>
                 </div>
             </section>
@@ -498,29 +681,14 @@
                 <div class="news-card" style="background-color: #fafbfc; padding: 15px; border: 1px solid #e2e8f0;">
                     <h3>Revierhauptwache (Division Headquarters)</h3>
                     <p class="date" style="color: #0b1d33; font-weight: bold;">📍 217 Venice Blvd, Los Angeles, CA 90015</p>
-                    <p>Die Hauptwache ist die zentrale Anlaufstelle für die Bevölkerung im Sektor. Geöffnet 24 Stunden am Tag für Notfallanzeigen und Bürgerdienste.</p>
+                    <p>Die Hauptwache ist die zentrale Anlaufstelle für die Bevölkerung im Sektor. Geöffnet 24 Stunden am Tag.</p>
                 </div>
-                <br>
-                <h3>Spezialkräfte des Departments</h3>
-                <p>Über das lokale Revier hinaus kooperiert die Dienststelle eng mit den zentralisierten Ressourcen der Behörde:</p>
-                <ul style="margin-left: 20px; margin-top: 10px;">
-                    <li><strong>Metropolitan Division:</strong> Beinhaltet die taktischen Zugriffselemente (SWAT) sowie die K9-Hundeführerstaffel.</li>
-                    <li><strong>Air Support Division:</strong> Bietet Luftaufklärung und taktische Unterstützung bei Verfolgungen.</li>
-                    <li><strong>Detective Bureau:</strong> Aufgeteilt in Spezialsquads wie die Robbery-Homicide Division (RHD) und Gangs/Narcotics (GND).</li>
-                </ul>
             </section>
 
             <section id="karriere" class="page-section">
                 <h2>Karriere beim LAPD</h2>
                 <hr>
-                <p>Die Recruitment Section sucht fortlaufend qualifizierte Bewerber für den Dienst an der Academy. Der Polizeidienst erfordert außergewöhnliche Fitness, mentale Stärke, Teamfähigkeit und ein einwandfreies Führungszeugnis.</p>
-                <br>
-                <h3>Das Auswahlverfahren:</h3>
-                <ol style="margin-left: 20px; margin-top: 10px;">
-                    <li>Schriftlicher Eignungstest (Online-Vorverfahren)</li>
-                    <li>Physischer Qualifikationstest (PFQ - Sporttest)</li>
-                    <li>Gründliche Hintergrundüberprüfung (Background Check) & psychologisches Gutachten</li>
-                </ol>
+                <p>Die Recruitment Section sucht fortlaufend qualifizierte Bewerber für den Dienst an der Academy. Ein einwandfreies Führungszeugnis ist zwingende Voraussetzung.</p>
             </section>
 
             <section id="presseportal" class="page-section">
@@ -529,7 +697,7 @@
                 <div class="news-card">
                     <h3>Zeugenaufruf nach Vorfall im West Bureau</h3>
                     <p class="date">14. Juni 2026</p>
-                    <p>Die Ermittler bitten die Bevölkerung um sachdienliche Hinweise zu einem Vorfall nahe dem Santa Monica Boulevard. Hinweise nimmt jede lokale Dienststelle entgegen.</p>
+                    <p>Die Ermittler bitten die Bevölkerung um sachdienliche Hinweise zu einem Vorfall nahe dem Santa Monica Boulevard.</p>
                 </div>
             </section>
 
@@ -542,12 +710,12 @@
                 <li><a href="#dienststellen">Wache finden</a></li>
             </ul>
 
-            <div class="wichtig-box" style="margin-bottom: 20px; background-color: #f0fff4; border-left-color: #38a169;">
-                <h4 style="color: #276749;">Bewerbungsphase</h4>
-                <p>Das Portal nimmt derzeit aktive Bewerbungen entgegen.</p>
+            <div class="wichtig-box" style="margin-bottom: 20px;">
+                <h4>Bewerbungsphase</h4>
+                <p>Das Portal nimmt derzeit aktive Bewerbungen über Discord entgegen.</p>
             </div>
             
-            <a href="HIER_DEIN_FORMULAR_LINK" class="btn-apply" target="_blank">Jetzt Online Bewerben</a>
+            <a href="https://discord.gg/KbVJKrfhVP" class="btn-apply" target="_blank">Jetzt über Discord bewerben</a>
         </aside>
 
     </main>
@@ -557,7 +725,7 @@
             
             <div class="footer-col">
                 <h3>ÜBER DAS LAPD</h3>
-                <p>Das Los Angeles Police Department dient über 4 Millionen Menschen im Stadtgebiet von Los Angeles und sorgt für den Schutz von Recht und Ordnung.</p>
+                <p>Das Los Angeles Police Department dient über 4 Millionen Menschen im Stadtgebiet von Los Angeles und sorgt für den Schutz von Recht, Ordnung und Verfassung.</p>
                 <p style="margin-top: 15px;"><span class="footer-highlight">Captain:</span> Ethan Walker</p>
                 <p><span class="footer-highlight">Sergeant II:</span> Oliver Lopez</p>
                 <p><span class="footer-highlight">Sergeant I:</span> Jordan McDonnell</p>
@@ -568,8 +736,8 @@
                 <h3>SCHNELLZUGRIFF</h3>
                 <ul>
                     <li><a href="#startseite">Startseite</a></li>
-                    <li><a href="#ueber-uns">Auftrag</a></li>
-                    <li><a href="#ueber-uns">Personal</a></li>
+                    <li><a href="#personal">Auftrag</a></li>
+                    <li><a href="#personal">Personal</a></li>
                     <li><a href="#partnerschaft">LFA</a></li>
                     <li><a href="#karriere">Karriere</a></li>
                 </ul>
@@ -580,7 +748,7 @@
                 <p><span class="footer-highlight">Notruf:</span> 911</p>
                 <p><span class="footer-highlight">Nicht-Notfall:</span> 4809294303</p>
                 <p><span class="footer-highlight">E-Mail:</span> contact@lapd-portal.de</p>
-                <p><a href="HIER_DISCORD_LINK" target="_blank">Discord Server</a></p>
+                <p><a href="https://discord.gg/KbVJKrfhVP" target="_blank">Discord Server</a></p>
             </div>
 
             <div class="footer-col">
