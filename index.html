@@ -305,20 +305,20 @@
         }
 
         .staff-img-box {
-            width: 140px;
-            min-width: 140px;
+            width: 160px;
+            min-width: 160px;
             background-color: #162a45;
             display: flex;
-            align-items: flex-start; /* Verhindert das vertikale Strecken der Box */
+            align-items: flex-start;
+            justify-content: center;
             overflow: hidden;
         }
 
         .staff-img-box img {
             width: 100%;
-            /* Erzwingt exakt das gewünschte Aspektverhältnis von 1124x1247 */
             aspect-ratio: 1124 / 1247; 
             object-fit: cover;
-            object-position: center top;
+            object-position: center; 
             display: block;
         }
 
