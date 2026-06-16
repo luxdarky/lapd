@@ -162,7 +162,7 @@
             margin-bottom: 20px;
         }
 
-        /* --- STYLING: EXKLUSIVES FÜHRUNGSPROFIL (WALKER PRO CARD) --- */
+        /* --- STYLING: FÜHRUNGSPROFIL --- */
         .leadership-section {
             background-color: #111e2e;
             color: white;
@@ -218,10 +218,9 @@
             flex: 1;
         }
 
-        /* Die 4 Infokästen nebeneinander */
         .leadership-stats {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 20px;
         }
@@ -318,25 +317,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .staff-no-photo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #cfb997;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .staff-no-photo span {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #718096;
-            margin-top: 5px;
         }
 
         .staff-info {
@@ -510,9 +490,9 @@
             color: #0b1d33;
         }
 
-        /* --- FOOTER-REPLIKATION IM LAPD STYLE --- */
+        /* --- FOOTER STYLING --- */
         .custom-footer {
-            background-color: #08111c; /* Sehr dunkles LAPD-Blau-Schwarz */
+            background-color: #08111c;
             color: #a0aec0;
             padding: 60px 20px 40px 20px;
             font-size: 0.9rem;
@@ -530,7 +510,7 @@
         }
 
         .footer-col h3 {
-            color: #cfb997; /* Markanter Gold-Farbton aus den Vorlagen */
+            color: #cfb997;
             font-size: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -566,7 +546,6 @@
             font-weight: bold;
         }
 
-        /* Kasten "WICHTIGER HINWEIS" exakt adaptiert */
         .footer-notice-box {
             max-width: 1200px;
             margin: 0 auto 40px auto;
@@ -588,7 +567,6 @@
             font-weight: bold;
         }
 
-        /* Unterer Slogan & Sponsoren-Verweis */
         .footer-bottom-credits {
             max-width: 1200px;
             margin: 0 auto;
@@ -705,30 +683,26 @@
                                 <span class="stat-label">Dienstzeit</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-value">Valour</span>
-                                <span class="stat-label">Medal of Valor</span>
+                                <span class="stat-value">Sektor West</span>
+                                <span class="stat-label">Hauptquartier</span>
                             </div>
                             <div class="stat-item">
-                                <span class="stat-value">Neutral</span>
-                                <span class="stat-label">Parteilos</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">Active</span>
+                                <span class="stat-value">Aktiv</span>
                                 <span class="stat-label">Status</span>
                             </div>
                         </div>
 
                         <p class="leadership-bio">
-                            Captain Ethan Walker führt das Los Angeles Police Department mit strategischem Weitblick, taktischer Exzellenz und einer klaren Haltung. In seiner über 10-jährigen Laufbahn im Dienst der Öffentlichkeit hat er bewiesen, dass die Integrität des Departments über politischen Strömungen stehen muss. Walker ist bewusst kein Mitglied der LFA oder einer anderen politischen Partei. Diese Unabhängigkeit sichert die absolute Neutralität des LAPD beim Schutz aller Bürger.
+                            Captain Ethan Walker führt das Los Angeles Police Department mit strategischem Weitblick, taktischer Exzellenz und einer klaren Struktur. In seiner über 10-jährigen Laufbahn im Dienst der Öffentlichkeit hat er das Department stetig modernisiert und weiterentwickelt, um den täglichen Schutz der Bürger zu gewährleisten.
                         </p>
 
                         <div class="leadership-quote">
-                            <span class="quote-text">„Unser Eid gilt der Verfassung und dem Schutz der Bürger von Los Angeles – völlig unvoreingenommen, neutral und unabhängig von politischer Zugehörigkeit.“</span>
+                            <span class="quote-text">„Unser Eid gilt der Verfassung und dem verlässlichen Schutz aller Bürger von Los Angeles – Tag für Tag.“</span>
                             <span class="quote-author">— Captain Ethan Walker</span>
                         </div>
 
                         <p class="leadership-footer-text">
-                            Unter seiner Führung setzt das Department auf transparente Kriminalitätsbekämpfung und professionelle Distanz zu politischen Agenden, um eine unparteiische Strafverfolgung auf den Straßen von Los Angeles zu gewährleisten.
+                            Unter seiner Leitung setzt das Department auf transparente Kriminalitätsbekämpfung, engmaschige Ausbildungskompetenz und modernste Einsatzkoordination.
                         </p>
                     </div>
                 </div>
@@ -750,12 +724,11 @@
                                 <p class="staff-role">Captain</p>
                                 <p class="staff-name">Ethan Walker</p>
                                 <p class="staff-assignment">Leiter des Los Angeles Police Department</p>
-                                <p class="staff-bio">Führt das LAPD mit strategischem Fokus. Setzt als politisch unabhängiger Officer konsequent auf Neutralität und verfassungstreue Strafverfolgung.</p>
+                                <p class="staff-bio">Führt das LAPD mit strategischem Fokus und langjähriger Einsatzerfahrung in der Metropole.</p>
                             </div>
                             <div class="staff-badges">
                                 <span class="staff-badge">10 Jahre Dienst</span>
-                                <span class="staff-badge">Medal of Valor</span>
-                                <span class="staff-badge">Politisch Neutral</span>
+                                <span class="staff-badge">Department Head</span>
                             </div>
                         </div>
                     </div>
@@ -810,27 +783,6 @@
                             <div class="staff-badges">
                                 <span class="staff-badge">Ermittler 2026</span>
                                 <span class="staff-badge">Detektivbüro</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="staff-card">
-                        <div class="staff-img-box">
-                            <div class="staff-no-photo">
-                                MJ
-                                <span>Kein Foto</span>
-                            </div>
-                        </div>
-                        <div class="staff-info">
-                            <div>
-                                <p class="staff-role">Officer III</p>
-                                <p class="staff-name">Mitch Juares</p>
-                                <p class="staff-assignment">Streifendenst — Sektor West</p>
-                                <p class="staff-bio">Erfahrener Streifenbeamter mit absoluter Leidenschaft für die Gemeinde. Schützt täglich mit Entschlossenheit die Bürger von Los Angeles.</p>
-                            </div>
-                            <div class="staff-badges">
-                                <span class="staff-badge">Streifendienst</span>
-                                <span class="staff-badge">LAPD</span>
                             </div>
                         </div>
                     </div>
@@ -901,7 +853,7 @@
             <div class="footer-col">
                 <h3>ÜBER DAS LAPD</h3>
                 <p>Das Los Angeles Police Department dient über 4 Millionen Menschen im Stadtgebiet von Los Angeles und sorgt für den Schutz von Recht, Ordnung und Verfassung.</p>
-                <p style="margin-top: 15px;"><span class="footer-highlight">Captain:</span> Ethan Walker (Politisch Unabhängig)</p>
+                <p style="margin-top: 15px;"><span class="footer-highlight">Captain:</span> Ethan Walker</p>
                 <p><span class="footer-highlight">Sergeant II:</span> Oliver Lopez</p>
                 <p><span class="footer-highlight">Sergeant I:</span> Jordan McDonnell</p>
                 <p><span class="footer-highlight">Detective III:</span> Jason Reed</p>
