@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LAPD - Los Angeles Police Department | Night of Roleplay</title>
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link class="favicon" rel="icon" type="image/png" href="favicon.png">
     <style>
         /* --- ALLGEMEINES STYLING (LAPD-FARBSCHEMA) --- */
         * {
@@ -308,19 +308,18 @@
             width: 140px;
             min-width: 140px;
             background-color: #162a45;
-            position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            /* HIER WURDE RATIO GEÄNDERT */
-            aspect-ratio: 1124 / 1247; 
-            height: auto;
+            align-items: flex-start; /* Verhindert das vertikale Strecken der Box */
+            overflow: hidden;
         }
 
         .staff-img-box img {
             width: 100%;
-            height: 100%;
+            /* Erzwingt exakt das gewünschte Aspektverhältnis von 1124x1247 */
+            aspect-ratio: 1124 / 1247; 
             object-fit: cover;
+            object-position: center top;
+            display: block;
         }
 
         .staff-info {
@@ -409,22 +408,24 @@
             padding: 20px;
             border-radius: 4px;
             margin-top: 15px;
+            align-items: flex-start;
         }
 
-        .lfa-badge {
-            background: linear-gradient(135deg, #0b1d33 0%, #162a45 100%);
-            color: #cfb997;
-            padding: 10px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-align: center;
-            border-radius: 4px;
-            min-width: 100px;
-            height: fit-content;
+        /* LFA Logo-Box auf exakte Auflösung fixiert */
+        .lfa-logo-box {
+            width: 193px;
+            min-width: 193px;
+            height: 128px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #cfb997;
+            overflow: hidden;
+        }
+
+        .lfa-logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         /* Sidebar Elements */
@@ -614,6 +615,8 @@
             .navbar li a { text-align: center; padding: 10px; }
             .sidebar { position: static; }
             .footer-grid { grid-template-columns: 1fr; gap: 25px; }
+            .partnership-box { flex-direction: column; align-items: center; text-align: center; }
+            .lfa-logo-box { min-width: unset; }
         }
     </style>
 </head>
@@ -798,7 +801,9 @@
                 <h2>Unsere Partnerschaft mit der LFA</h2>
                 <hr>
                 <div class="partnership-box">
-                    <img src="lfa.png" alt="LFA Logo">
+                    <div class="lfa-logo-box">
+                        <img src="lfa.png" alt="LFA Logo">
+                    </div>
                     <div>
                         <h3 style="color: #0b1d33; margin-bottom: 5px;">Left For America (LFA)</h3>
                         <p style="font-size: 0.95rem; color: #4a5568; margin-bottom: 10px;">
