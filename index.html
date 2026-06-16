@@ -6,7 +6,6 @@
     <title>LAPD - Los Angeles Police Department | Night of Roleplay</title>
     <link class="favicon" rel="icon" type="image/png" href="favicon.png">
     <style>
-        /* --- ALLGEMEINES STYLING (LAPD-FARBSCHEMA) --- */
         * {
             margin: 0;
             padding: 0;
@@ -21,7 +20,6 @@
             line-height: 1.6;
         }
 
-        /* Notruf-Leiste */
         .announcement-bar {
             background-color: #d9534f;
             color: white;
@@ -34,7 +32,6 @@
             z-index: 1000;
         }
 
-        /* Header-Bereich */
         .main-header {
             background-color: #0b1d33;
             color: white;
@@ -66,7 +63,6 @@
             font-size: 1rem;
         }
 
-        /* Navigation */
         .navbar {
             background-color: #162a45;
             position: sticky;
@@ -97,7 +93,6 @@
             color: #0b1d33;
         }
 
-        /* Hero Banner */
         .hero-section {
             position: relative;
             max-width: 1200px;
@@ -124,7 +119,6 @@
             padding: 30px 20px;
         }
 
-        /* Haupt-Layout-Struktur */
         .content-container {
             max-width: 1200px;
             margin: 20px auto;
@@ -163,7 +157,6 @@
             margin-bottom: 20px;
         }
 
-        /* --- STYLING: FÜHRUNGSPROFIL --- */
         .leadership-section {
             background-color: #111e2e;
             color: white;
@@ -286,7 +279,6 @@
             color: #a0aec0;
         }
 
-        /* --- STYLING: MITARBEITERLISTE (CHARACTER CARDS) --- */
         .staff-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -378,7 +370,6 @@
             font-weight: bold;
         }
 
-        /* News & Kooperationen */
         .news-card {
             margin-bottom: 25px;
             padding-bottom: 15px;
@@ -413,7 +404,6 @@
             align-items: flex-start;
         }
 
-        /* LFA Logo-Box auf exakte Auflösung fixiert */
         .lfa-logo-box {
             width: 193px;
             min-width: 193px;
@@ -425,15 +415,12 @@
             align-self: center;
         }
 
-        .lfa-img-box img {
+        .lfa-logo-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center center;
-            display: block;
+            object-fit: contain;
         }
 
-        /* Sidebar Elements */
         .sidebar {
             background: white;
             padding: 25px;
@@ -500,7 +487,6 @@
             color: #0b1d33;
         }
 
-        /* --- FOOTER STYLING --- */
         .custom-footer {
             background-color: #08111c;
             color: #a0aec0;
@@ -604,7 +590,6 @@
             font-size: 0.85rem;
         }
 
-        /* Responsive Anpassungen */
         @media (max-width: 900px) {
             .staff-grid { grid-template-columns: 1fr; }
         }
@@ -705,7 +690,7 @@
                         </div>
 
                         <p class="leadership-bio">
-                            Captain Ethan Walker führt das Los Angeles Police Department mit strategischem Weitblick, taktischer Exzellenz und einer klaren Struktur. In seiner über 10-jährigen Laufbahn im Dienst der Öffentlichkeit hat er das Department stetig modernisiert und weiterentwickelt, um den täglichen Schutz der Bürger zu gewährleisten.
+                            Captain Ethan Walker führt das Los Angeles Police Department mit strategichem Weitblick, taktischer Exzellenz und einer klaren Struktur. In seiner über 10-jährigen Laufbahn im Dienst der Öffentlichkeit hat er das Department stetig modernisiert und weiterentwickelt, um den täglichen Schutz der Bürger zu gewährleisten.
                         </p>
 
                         <div class="leadership-quote">
