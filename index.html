@@ -3,43 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LAPD - Los Angeles Police Department | Night of Roleplay</title>
+    <title>Los Angeles Police Department | LAPD Online</title>
     <link class="favicon" rel="icon" type="image/png" href="favicon.png">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f4f6f9;
-            color: #333;
-            line-height: 1.6;
+            background-color: #f8fafc;
+            color: #1a202c;
+            line-height: 1.5;
         }
 
-        .announcement-bar {
-            background-color: #d9534f;
-            color: white;
-            text-align: center;
-            padding: 5px 0;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .top-meta-bar {
+            background-color: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.8rem;
+            color: #475569;
+            padding: 8px 0;
         }
 
-        .main-header {
-            background-color: #0b1d33;
-            color: white;
-            padding: 20px 0;
-            border-bottom: 3px solid #cfb997;
+        .top-meta-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
         }
 
-        .header-container {
+        .top-meta-left span {
+            margin-right: 15px;
+            font-weight: 500;
+        }
+
+        .top-meta-right span {
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        .main-site-header {
+            background-color: #ffffff;
+            padding: 25px 0;
+            border-bottom: 4px solid #002f6c;
+        }
+
+        .header-brand-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
@@ -47,30 +60,37 @@
             padding: 0 20px;
         }
 
-        .logo {
-            height: 80px;
-            margin-right: 20px;
+        .brand-badge {
+            height: 90px;
+            margin-right: 25px;
         }
 
-        .header-text h1 {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
+        .brand-title-group h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #002f6c;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
         }
 
-        .motto {
-            color: #cfb997;
-            font-style: italic;
-            font-size: 1rem;
+        .brand-title-group p {
+            color: #64748b;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 5px;
+            font-weight: 600;
         }
 
-        .navbar {
-            background-color: #162a45;
+        .primary-nav {
+            background-color: #002f6c;
             position: sticky;
-            top: 31px;
-            z-index: 999;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        .navbar ul {
+        .primary-nav ul {
             max-width: 1200px;
             margin: 0 auto;
             list-style: none;
@@ -78,234 +98,263 @@
             padding: 0 20px;
         }
 
-        .navbar li a {
+        .primary-nav li a {
             display: block;
-            color: #f4f6f9;
+            color: #ffffff;
             text-decoration: none;
-            padding: 15px 20px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            transition: background 0.2s;
+            padding: 18px 22px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.15s ease;
         }
 
-        .navbar li a:hover {
-            background-color: #cfb997;
-            color: #0b1d33;
+        .primary-nav li a:hover {
+            background-color: #001f4d;
         }
 
-        .hero-section {
+        .portal-hero {
             position: relative;
-            max-width: 1200px;
-            margin: 20px auto;
-            height: 300px;
+            background-color: #001f4d;
+            height: 440px;
             overflow: hidden;
-            background-color: #0b1d33;
         }
 
-        .hero-image {
+        .portal-hero-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.6;
+            opacity: 0.75;
         }
 
-        .hero-overlay {
+        .portal-hero-caption {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(transparent, rgba(11, 29, 51, 0.95));
-            color: white;
-            padding: 30px 20px;
+            background: linear-gradient(to top, rgba(0, 47, 108, 0.95) 20%, rgba(0, 47, 108, 0.4) 70%, transparent);
+            color: #ffffff;
+            padding: 60px 0 40px 0;
         }
 
-        .content-container {
+        .caption-inner {
             max-width: 1200px;
-            margin: 20px auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 30px;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
-        .page-section {
-            background: white;
-            padding: 30px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
-            scroll-margin-top: 90px;
-        }
-
-        .page-section h2 {
-            color: #0b1d33;
+        .caption-inner h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
             margin-bottom: 10px;
-            font-size: 1.8rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
-        .page-section h4.section-subtitle {
-            font-size: 1rem;
-            color: #a3a3a3;
-            font-weight: normal;
-            margin-bottom: 20px;
+        .caption-inner p {
+            font-size: 1.1rem;
+            color: #f1f5f9;
+            max-width: 700px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
-        hr {
-            border: 0;
-            height: 2px;
-            background: #cfb997;
-            margin-bottom: 20px;
+        .quick-grid-links {
+            max-width: 1200px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        .leadership-section {
-            background-color: #111e2e;
-            color: white;
-            padding: 35px;
-            border-radius: 6px;
-            border: 1px solid #cfb997;
+        .quick-tile {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            border-bottom: 4px solid #002f6c;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .quick-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-tile span {
+            display: block;
+            color: #002f6c;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .layout-main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto 60px auto;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 40px;
+            padding: 0 20px;
+        }
+
+        .web-section-card {
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 35px;
+            border: 1px solid #e2e8f0;
+            scroll-margin-top: 80px;
+        }
+
+        .section-headline-group {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 15px;
             margin-bottom: 30px;
-            scroll-margin-top: 90px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .leadership-badge {
-            color: #cfb997;
+        .web-section-card h2 {
+            color: #002f6c;
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .web-section-card h4.section-subtitle {
+            font-size: 0.95rem;
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
+        .chief-container-profile {
+            background-color: #f8fafc;
+            border-left: 6px solid #002f6c;
+            padding: 30px;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .chief-meta-tag {
+            color: #002f6c;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            margin-bottom: 8px;
             display: block;
-            font-weight: bold;
         }
 
-        .leadership-header h2 {
-            font-size: 2.2rem;
-            color: #ffffff;
-            margin-bottom: 5px;
+        .chief-identity h3 {
+            font-size: 1.75rem;
+            color: #0c1a30;
+            font-weight: 800;
         }
 
-        .leadership-subheader {
-            color: #cbd5e0;
-            font-size: 1rem;
+        .chief-identity p {
+            color: #475569;
+            font-size: 0.95rem;
+            font-weight: 500;
             margin-bottom: 25px;
         }
 
-        .leadership-card {
+        .chief-flex-row {
             display: flex;
             gap: 30px;
             align-items: flex-start;
         }
 
-        .leadership-img-wrapper {
-            flex: 0 0 240px;
-            position: relative;
+        .chief-avatar-box {
+            flex: 0 0 220px;
         }
 
-        .leadership-img-wrapper img {
+        .chief-avatar-box img {
             width: 100%;
-            border-radius: 6px;
-            border-bottom: 4px solid #cfb997;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 1px solid #cbd5e1;
         }
 
-        .leadership-content {
+        .chief-body-narrative {
             flex: 1;
         }
 
-        .leadership-stats {
+        .chief-metrics-shelf {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 20px;
         }
 
-        .stat-item {
-            background: rgba(207, 185, 151, 0.1);
-            border-top: 2px solid #cfb997;
-            padding: 12px 5px;
+        .metric-block {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 12px;
             text-align: center;
-            border-radius: 0 0 4px 4px;
+            border-radius: 6px;
         }
 
-        .stat-value {
+        .metric-num {
             display: block;
-            font-weight: bold;
+            font-weight: 800;
             font-size: 1.1rem;
-            color: #cfb997;
+            color: #002f6c;
         }
 
-        .stat-label {
+        .metric-tag {
             display: block;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            color: #ffffff;
-            margin-top: 4px;
+            color: #64748b;
+            margin-top: 2px;
+            font-weight: 700;
             letter-spacing: 0.5px;
         }
 
-        .leadership-bio {
-            font-size: 0.95rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .leadership-quote {
-            background: rgba(255, 255, 255, 0.04);
-            border-left: 4px solid #cfb997;
-            padding: 15px 20px;
-            margin-bottom: 20px;
+        .chief-speech-bubble {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            margin-bottom: 15px;
             font-style: italic;
-            border-radius: 0 4px 4px 0;
+            border-radius: 6px;
+            color: #334155;
+            position: relative;
         }
 
-        .quote-text {
-            font-size: 1rem;
-            color: #ffffff;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .quote-author {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            color: #cfb997;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .leadership-footer-text {
-            font-size: 0.85rem;
-            color: #a0aec0;
-        }
-
-        .staff-grid {
+        .roster-grid-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 25px;
         }
 
-        .staff-card {
-            background-color: #0b1d33;
-            color: white;
-            border-radius: 6px;
+        .profile-roster-card {
+            background-color: #ffffff;
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            border: 1px solid rgba(207, 185, 151, 0.1);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
         }
 
         .staff-img-box {
             width: 140px;
             min-width: 140px;
             height: 244.5px;
-            background-color: #162a45;
+            background-color: #f1f5f9;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
             align-self: center;
+            border-right: 1px solid #e2e8f0;
         }
 
         .staff-img-box img {
@@ -327,31 +376,31 @@
         .staff-role {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #cfb997;
-            font-weight: bold;
+            letter-spacing: 1px;
+            color: #002f6c;
+            font-weight: 700;
             margin-bottom: 2px;
         }
 
         .staff-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #ffffff;
-            margin-bottom: 4px;
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 2px;
         }
 
         .staff-assignment {
             font-size: 0.8rem;
-            color: #a0aec0;
-            font-style: italic;
-            margin-bottom: 12px;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 10px;
         }
 
         .staff-bio {
             font-size: 0.85rem;
-            color: #cbd5e0;
+            color: #334155;
             line-height: 1.4;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .staff-badges {
@@ -361,46 +410,51 @@
         }
 
         .staff-badge {
-            background-color: rgba(207, 185, 151, 0.15);
-            color: #cfb997;
+            background-color: #f1f5f9;
+            color: #475569;
             font-size: 0.7rem;
-            padding: 4px 10px;
-            border-radius: 20px;
-            border: 1px solid rgba(207, 185, 151, 0.3);
-            font-weight: bold;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+            font-weight: 600;
         }
 
-        .news-card {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #e2e8f0;
+        .bulletin-news-entry {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #f1f5f9;
         }
 
-        .news-card:last-child {
+        .bulletin-news-entry:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
 
-        .news-card h3 {
-            color: #162a45;
-            margin-bottom: 5px;
+        .bulletin-news-entry h3 {
+            color: #002f6c;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 6px;
         }
 
-        .date {
-            font-size: 0.85rem;
-            color: #718096;
-            margin-bottom: 10px;
+        .bulletin-date {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: block;
         }
 
-        .partnership-box {
+        .partnership-integration-box {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             background: #f8fafc;
-            border: 1px dashed #cfb997;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 15px;
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 8px;
             align-items: flex-start;
         }
 
@@ -413,6 +467,9 @@
             justify-content: center;
             overflow: hidden;
             align-self: center;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
         }
 
         .lfa-logo-box img {
@@ -421,298 +478,364 @@
             object-fit: contain;
         }
 
-        .sidebar {
-            background: white;
-            padding: 25px;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        .alliance-details h3 {
+            color: #002f6c;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .alliance-details p {
+            font-size: 0.9rem;
+            color: #475569;
+        }
+
+        .station-card-module {
+            background-color: #f8fafc;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+        }
+
+        .station-card-module h3 {
+            color: #0f172a;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .web-sidebar-content {
             height: fit-content;
             position: sticky;
-            top: 100px;
+            top: 80px;
         }
 
-        .sidebar h3 {
-            color: #0b1d33;
-            margin-bottom: 15px;
-            border-left: 4px solid #cfb997;
-            padding-left: 10px;
+        .sidebar-widget {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
         }
 
-        .sidebar ul {
+        .sidebar-widget h3 {
+            color: #002f6c;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #002f6c;
+            padding-bottom: 8px;
+        }
+
+        .sidebar-links-list {
             list-style: none;
-            margin-bottom: 25px;
         }
 
-        .sidebar ul li a {
+        .sidebar-links-list li a {
             display: block;
             padding: 10px 0;
-            color: #2d3748;
+            color: #334155;
             text-decoration: none;
-            border-bottom: 1px solid #edf2f7;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-bottom: 1px solid #f1f5f9;
+            transition: color 0.15s ease;
         }
 
-        .sidebar ul li a:hover {
-            color: #cfb997;
+        .sidebar-links-list li a:hover {
+            color: #002f6c;
         }
 
-        .wichtig-box {
-            background-color: #f0fff4;
-            border-left: 4px solid #38a169;
-            padding: 15px;
-            font-size: 0.9rem;
+        .alert-status-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 20px;
+            border-radius: 0 6px 6px 0;
         }
 
-        .wichtig-box h4 {
-            color: #276749;
-            margin-bottom: 5px;
+        .alert-status-box h4 {
+            color: #14532d;
+            font-weight: 700;
+            margin-bottom: 4px;
+            font-size: 0.95rem;
         }
 
-        .btn-apply {
+        .alert-status-box p {
+            font-size: 0.85rem;
+            color: #166534;
+        }
+
+        .action-button-trigger {
             display: block;
             width: 100%;
             text-align: center;
-            background-color: #0b1d33;
-            color: white;
+            background-color: #002f6c;
+            color: #ffffff;
             padding: 15px;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-            border: 2px solid #cfb997;
-            transition: all 0.2s ease;
-            margin-top: 15px;
+            font-weight: 700;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            transition: background-color 0.15s ease;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 47, 108, 0.2);
         }
 
-        .btn-apply:hover {
-            background-color: #cfb997;
-            color: #0b1d33;
+        .action-button-trigger:hover {
+            background-color: #001f4d;
         }
 
-        .custom-footer {
-            background-color: #08111c;
-            color: #a0aec0;
-            padding: 60px 20px 40px 20px;
-            font-size: 0.9rem;
-            border-top: 3px solid #cfb997;
-            margin-top: 60px;
+        .site-footer-structure {
+            background-color: #0c1a30;
+            color: #94a3b8;
+            padding: 60px 0 40px 0;
+            font-size: 0.85rem;
+            border-top: 6px solid #002f6c;
         }
 
-        .footer-grid {
+        .footer-columns-container {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            grid-template-columns: 1.32fr 1fr 1fr 1fr;
             gap: 40px;
-            padding-bottom: 40px;
+            padding: 0 20px 40px 20px;
+            border-bottom: 1px solid #1e293b;
         }
 
-        .footer-col h3 {
-            color: #cfb997;
-            font-size: 1rem;
+        .footer-block h3 {
+            color: #ffffff;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        .footer-col p {
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-            color: #cbd5e0;
+        .footer-block p {
+            margin-bottom: 12px;
+            color: #cbd5e1;
+            line-height: 1.6;
         }
 
-        .footer-col ul {
+        .footer-block ul {
             list-style: none;
         }
 
-        .footer-col ul li {
+        .footer-block ul li {
             margin-bottom: 10px;
         }
 
-        .footer-col ul li a {
-            color: #cbd5e0;
+        .footer-block ul li a {
+            color: #cbd5e1;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: color 0.15s ease;
         }
 
-        .footer-col ul li a:hover {
-            color: #cfb997;
-        }
-
-        .footer-highlight {
+        .footer-block ul li a:hover {
             color: #ffffff;
-            font-weight: bold;
         }
 
-        .footer-notice-box {
+        .strong-highlight {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .disclaimer-container-fluid {
             max-width: 1200px;
-            margin: 0 auto 40px auto;
-            background-color: rgba(11, 29, 51, 0.4);
-            border: 1px solid rgba(207, 185, 151, 0.2);
+            margin: 30px auto 0 auto;
+            padding: 0 20px;
+        }
+
+        .disclaimer-box-card {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid #1e293b;
             border-radius: 6px;
             padding: 20px;
-            text-align: left;
         }
 
-        .footer-notice-box p {
-            font-size: 0.85rem;
-            color: #a0aec0;
-            line-height: 1.5;
+        .disclaimer-box-card p {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            line-height: 1.6;
         }
 
-        .footer-notice-title {
-            color: #cfb997;
-            font-weight: bold;
+        .disclaimer-header-label {
+            color: #f8fafc;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
         }
 
-        .footer-bottom-credits {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 30px;
-            border-top: 1px solid rgba(207, 185, 151, 0.1);
+        .footer-bottom-meta {
             text-align: center;
+            margin-top: 30px;
+            padding: 0 20px;
+            color: #64748b;
+            font-size: 0.8rem;
         }
 
-        .footer-copyright {
-            color: #718096;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-        }
-
-        .footer-slogan {
-            font-style: italic;
-            color: #cbd5e0;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .footer-sponsor {
-            color: #cfb997;
-            font-weight: bold;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 900px) {
-            .staff-grid { grid-template-columns: 1fr; }
+        @media (max-width: 1024px) {
+            .quick-grid-links { grid-template-columns: repeat(2, 1fr); margin-top: 20px; }
+            .roster-grid-layout { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .content-container { grid-template-columns: 1fr; }
-            .leadership-card { flex-direction: column; align-items: center; }
-            .leadership-img-wrapper { flex: 0 0 auto; width: 100%; max-width: 280px; }
-            .leadership-stats { grid-template-columns: 1fr 1fr; }
-            .header-container { flex-direction: column; text-align: center; }
-            .logo { margin-right: 0; margin-bottom: 15px; }
-            .navbar ul { flex-direction: column; }
-            .navbar li a { text-align: center; padding: 10px; }
-            .sidebar { position: static; }
-            .footer-grid { grid-template-columns: 1fr; gap: 25px; }
-            .partnership-box { flex-direction: column; align-items: center; text-align: center; }
+            .layout-main-wrapper { grid-template-columns: 1fr; }
+            .chief-flex-row { flex-direction: column; align-items: center; }
+            .chief-avatar-box { flex: 0 0 auto; width: 100%; max-width: 240px; }
+            .header-brand-container { flex-direction: column; text-align: center; }
+            .brand-badge { margin-right: 0; margin-bottom: 15px; }
+            .primary-nav ul { flex-direction: column; }
+            .primary-nav li a { padding: 12px 20px; text-align: center; }
+            .footer-columns-container { grid-template-columns: 1fr; gap: 30px; }
+            .partnership-integration-box { flex-direction: column; align-items: center; text-align: center; }
             .lfa-logo-box { min-width: unset; }
         }
     </style>
 </head>
 <body>
 
-    <div class="announcement-bar">
-        <p><strong>NOTRUF: 911</strong> | Nicht-Notfälle: (480) 929-4303</p>
+    <div class="top-meta-bar">
+        <div class="top-meta-container">
+            <div class="top-meta-left">
+                <span>An Official Website of the City of Los Angeles</span>
+            </div>
+            <div class="top-meta-right">
+                <span>EMERGENCIES DIAL 911</span>
+            </div>
+        </div>
     </div>
 
-    <header class="main-header">
-        <div class="header-container">
-            <img src="lapd-logo.png" alt="LAPD Emblem" class="logo">
-            <div class="header-text">
+    <header class="main-site-header">
+        <div class="header-brand-container">
+            <img src="lapd-logo.png" alt="LAPD Crest" class="brand-badge">
+            <div class="brand-title-group">
                 <h1>LOS ANGELES POLICE DEPARTMENT</h1>
-                <p class="motto">Zu schützen und zu dienen</p>
+                <p>To Protect and to Serve</p>
             </div>
         </div>
     </header>
 
-    <nav class="navbar">
+    <nav class="primary-nav">
         <ul>
-            <li><a href="#startseite">Startseite</a></li>
-            <li><a href="#fuehrung">Führung</a></li>
-            <li><a href="#personal">Personal</a></li>
-            <li><a href="#partnerschaft">Unsere Partner</a></li>
-            <li><a href="#dienststellen">Dienststellen</a></li>
-            <li><a href="#karriere">Karriere</a></li>
-            <li><a href="#presseportal">Presseportal</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#chief">Inside the LAPD</a></li>
+            <li><a href="#roster">Our Personnel</a></li>
+            <li><a href="#partners">Community Partners</a></li>
+            <li><a href="#stations">Stations</a></li>
+            <li><a href="#join">Join the Team</a></li>
+            <li><a href="#newsroom">Newsroom</a></li>
         </ul>
     </nav>
 
-    <section class="hero-section">
-        <img src="hero-banner.jpg" alt="LAPD Streifenwagen" class="hero-image">
-        <div class="hero-overlay">
-            <h2>Gemeinsam für die Sicherheit von Los Angeles</h2>
-            <p>Aktuelle Informationen, Ressourcen und Bürgerdienste der Stadtverwaltung.</p>
+    <section class="portal-hero" id="home">
+        <img src="hero-banner.jpg" alt="LAPD Cruiser Fleet" class="portal-hero-img">
+        <div class="portal-hero-caption">
+            <div class="caption-inner">
+                <h2>Commitment to Constitutional Policing</h2>
+                <p>Building trust through transparent community partnerships, strategic accountability, and elite public service throughout Los Angeles.</p>
+            </div>
         </div>
     </section>
 
-    <main class="content-container">
+    <section class="quick-grid-links">
+        <a href="#roster" class="quick-tile">
+            <span>Find Personnel</span>
+        </a>
+        <a href="#stations" class="quick-tile">
+            <span>Local Stations</span>
+        </a>
+        <a href="#newsroom" class="quick-tile">
+            <span>Crime Information</span>
+        </a>
+        <a href="#join" class="quick-tile">
+            <span>Apply Online</span>
+        </a>
+    </section>
+
+    <main class="layout-main-wrapper">
         
-        <div class="main-content-flow">
+        <div class="left-column-flow">
 
-            <section id="startseite" class="page-section">
-                <h2>Aktuelle Meldungen</h2>
-                <hr>
-                <div class="news-card" style="border-left: 4px solid #cfb997; padding-left: 15px;">
-                    <h3>Abschlussbericht: Bewaffneter Angriff auf Gerichtsgebäude an der Melrose Ave neutralisiert</h3>
-                    <p class="date">15. Juni 2026</p>
-                    <p>Das Los Angeles Police Department (LAPD) und das Los Angeles County Sheriff's Department (LASD) legen hiermit den aktuellen Ermittlungsstand zum Vorfall an der <strong>585 Melrose Ave</strong> vor.</p>
-                    <p style="margin-top: 10px;">Nach bisherigen Erkenntnissen handelte es sich um zwei koordinierte Tatverdächtige. Einer der Täter steuerte ein Kleinflugzeug in den Luftraum, das Luftfahrzeug abstürzte. Zeitgleich attackierte ein zweiter, bewaffneter Täter das Areal im Außenbereich. Bei dem Angreifer wurden eine Langwaffe des Typs IWI Tavor CTAR-21 sowie eine Kurzwaffe des Typs Glock 19 sichergestellt.</p>
-                    <p style="margin-top: 10px;">Durch das unmittelbare Erwidern des Feuers durch die Einsatzkräfte vor Ort wurden beide Tatverdächtige gestoppt. Sie erlagen noch am Einsatzort ihren schweren Schussverletzungen. Es sind keine Todesopfer unter den Bürgern oder Einsatzkräften zu beklagen. Das Detektivbüro hat die Ermittlungen übernommen.</p>
+            <section id="newsroom" class="web-section-card">
+                <div class="section-headline-group">
+                    <h2>LAPD Newsroom</h2>
+                    <h4 class="section-subtitle">Official press releases, critical incident notices, and operational updates</h4>
                 </div>
-            </section>
-
-            <section id="fuehrung" class="leadership-section">
-                <span class="leadership-badge">Department Leadership</span>
-                <div class="leadership-header">
-                    <h2>Captain Ethan Walker</h2>
-                    <p class="leadership-subheader">Commanding Officer des Los Angeles Police Department</p>
-                </div>
-
-                <div class="leadership-card">
-                    <div class="leadership-img-wrapper">
-                        <img src="Ethan Walker.png" alt="Captain Ethan Walker Portrait">
-                    </div>
-                    <div class="leadership-content">
-                        <div class="leadership-stats">
-                            <div class="stat-item">
-                                <span class="stat-value">10 Jahre</span>
-                                <span class="stat-label">Dienstzeit</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">Sektor West</span>
-                                <span class="stat-label">Hauptquartier</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-value">Aktiv</span>
-                                <span class="stat-label">Status</span>
-                            </div>
-                        </div>
-
-                        <p class="leadership-bio">
-                            Captain Ethan Walker führt das Los Angeles Police Department mit strategichem Weitblick, taktischer Exzellenz und einer klaren Struktur. In seiner über 10-jährigen Laufbahn im Dienst der Öffentlichkeit hat er das Department stetig modernisiert und weiterentwickelt, um den täglichen Schutz der Bürger zu gewährleisten.
-                        </p>
-
-                        <div class="leadership-quote">
-                            <span class="quote-text">„Unser Eid gilt der Verfassung und dem verlässlichen Schutz aller Bürger von Los Angeles – Tag für Tag.“</span>
-                            <span class="quote-author">— Captain Ethan Walker</span>
-                        </div>
-
-                        <p class="leadership-footer-text">
-                            Unter seiner Leitung setzt das Department auf transparente Kriminalitätsbekämpfung, engmaschige Ausbildungskompetenz und modernste Einsatzkoordination.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="personal" class="page-section">
-                <h2>Personal des LAPD</h2>
-                <h4 class="section-subtitle">Hinter jedem Stern steht ein Mensch, der täglich sein Bestes gibt.</h4>
-                <hr>
                 
-                <div class="staff-grid">
+                <div class="bulletin-news-entry">
+                    <h3>Abschlussbericht: Bewaffneter Angriff auf Gerichtsgebäude an der Melrose Ave neutralisiert</h3>
+                    <span class="bulletin-date">15. Juni 2026 — Press Release</span>
+                    <p>Das Los Angeles Police Department (LAPD) und das Los Angeles County Sheriff's Department (LASD) legen hiermit den aktuellen Ermittlungsstand zum Vorfall an der <strong>585 Melrose Ave</strong> vor.</p>
+                    <p style="margin-top: 12px;">Nach bisherigen Erkenntnissen handelte es sich um zwei koordinierte Tatverdächtige. Einer der Täter steuerte ein Kleinflugzeug in den Luftraum, das Luftfahrzeug abstürzte. Zeitgleich attackierte ein zweiter, bewaffneter Täter das Areal im Außenbereich. Bei dem Angreifer wurden eine Langwaffe des Typs IWI Tavor CTAR-21 sowie eine Kurzwaffe des Typs Glock 19 sichergestellt.</p>
+                    <p style="margin-top: 12px;">Durch das unmittelbare Erwidern des Feuers durch die Einsatzkräfte vor Ort wurden beide Tatverdächtige gestoppt. Sie erlagen noch am Einsatzort ihren schweren Schussverletzungen. Es sind keine Todesopfer unter den Bürgern oder Einsatzkräften zu beklagen. Das Detektivbüro hat die Ermittlungen übernommen.</p>
+                </div>
+            </section>
+
+            <section id="chief" class="web-section-card">
+                <div class="section-headline-group">
+                    <h2>Office of the Chief of Police</h2>
+                    <h4 class="section-subtitle">Leadership and strategic directives of the command staff</h4>
+                </div>
+
+                <div class="chief-container-profile">
+                    <span class="chief-meta-tag">Commanding Officer</span>
+                    <div class="chief-identity">
+                        <h3>Captain Ethan Walker</h3>
+                        <p>Commanding Officer, Los Angeles Police Department</p>
+                    </div>
+
+                    <div class="chief-flex-row">
+                        <div class="chief-avatar-box">
+                            <img src="sheriff_john_long.png" alt="Captain Ethan Walker Official Portrait">
+                        </div>
+                        <div class="chief-body-narrative">
+                            <div class="chief-metrics-shelf">
+                                <div class="metric-block">
+                                    <span class="metric-num">10+ Years</span>
+                                    <span class="metric-tag">Service</span>
+                                </div>
+                                <div class="metric-block">
+                                    <span class="metric-num">HQ West</span>
+                                    <span class="metric-tag">Division</span>
+                                </div>
+                                <div class="metric-block">
+                                    <span class="metric-num">Active</span>
+                                    <span class="metric-tag">Status</span>
+                                </div>
+                            </div>
+
+                            <p style="font-size: 0.95rem; color: #334155; margin-bottom: 15px;">
+                                Captain Ethan Walker führt das Los Angeles Police Department mit strategischem Weitblick, taktischer Exzellenz und einer klaren Struktur. In seiner über 10-jährigen Laufbahn im Dienst der Öffentlichkeit hat er das Department stetig modernisiert und weiterentwickelt, um den täglichen Schutz der Bürger zu gewährleisten.
+                            </p>
+
+                            <div class="chief-speech-bubble">
+                                „Unser Eid gilt der Verfassung und dem verlässlichen Schutz aller Bürger von Los Angeles – Tag für Tag.“
+                            </div>
+
+                            <p style="font-size: 0.85rem; color: #64748b;">
+                                Unter seiner Leitung setzt das Department auf transparente Kriminalitätsbekämpfung, engmaschige Ausbildungskompetenz und modernste Einsatzkoordination.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="roster" class="web-section-card">
+                <div class="section-headline-group">
+                    <h2>Department Active Roster</h2>
+                    <h4 class="section-subtitle">Sworn officers dedicated to maintaining order and safety</h4>
+                </div>
+                
+                <div class="roster-grid-layout">
                     
-                    <div class="staff-card">
+                    <div class="profile-roster-card">
                         <div class="staff-img-box">
                             <img src="Ethan Walker.png" alt="Captain Ethan Walker">
                         </div>
@@ -724,13 +847,13 @@
                                 <p class="staff-bio">Führt das LAPD mit strategischem Fokus und langjähriger Einsatzerfahrung in der Metropole.</p>
                             </div>
                             <div class="staff-badges">
-                                <span class="staff-badge">10+ Jahre Dienst</span>
-                                <span class="staff-badge">Department Head</span>
+                                <span class="staff-badge">10+ J. Dienst</span>
+                                <span class="staff-badge">Administration</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="staff-card">
+                    <div class="profile-roster-card">
                         <div class="staff-img-box">
                             <img src="Oliver Lopez.png" alt="Sergeant II Oliver Lopez">
                         </div>
@@ -742,13 +865,13 @@
                                 <p class="staff-bio">Dienstältester Supervisor des Departments. Verkörpert Präzision, Disziplin und taktische Leidenschaft in Sondereinsatzlagen.</p>
                             </div>
                             <div class="staff-badges">
-                                <span class="staff-badge">10+ Jahre Dienst</span>
-                                <span class="staff-badge">Kommandant SWAT</span>
+                                <span class="staff-badge">10+ J. Dienst</span>
+                                <span class="staff-badge">SWAT Command</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="staff-card">
+                    <div class="profile-roster-card">
                         <div class="staff-img-box">
                             <img src="Jordan McDonnell.png" alt="Sergeant I Jordan McDonnell">
                         </div>
@@ -760,13 +883,13 @@
                                 <p class="staff-bio">Bringt höchste strukturelle Gründlichkeit ins Training. Unter seiner Leitung wurden die Ausbildungsstandards grundlegend modernisiert.</p>
                             </div>
                             <div class="staff-badges">
-                                <span class="staff-badge">5+ Jahre Dienst</span>
-                                <span class="staff-badge">Ausbildungsleitung</span>
+                                <span class="staff-badge">5+ J. Dienst</span>
+                                <span class="staff-badge">Academy Chief</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="staff-card">
+                    <div class="profile-roster-card">
                         <div class="staff-img-box">
                             <img src="Jason Reed.png" alt="Detective III Jason Reed">
                         </div>
@@ -778,8 +901,8 @@
                                 <p class="staff-bio">Frisch befördert leitet er das Detective Bureau, führt die Ermittlungen bei schweren Straftaten an und sichert Beweise auf den Straßen von LA.</p>
                             </div>
                             <div class="staff-badges">
-                                <span class="staff-badge">Ermittler 2026</span>
-                                <span class="staff-badge">Detektivbüro</span>
+                                <span class="staff-badge">Investigator</span>
+                                <span class="staff-badge">Detective Bureau</span>
                             </div>
                         </div>
                     </div>
@@ -787,121 +910,128 @@
                 </div>
             </section>
 
-            <section id="partnerschaft" class="page-section">
-                <h2>Unsere Partnerschaft mit der LFA</h2>
-                <hr>
-                <div class="partnership-box">
+            <section id="partners" class="web-section-card">
+                <div class="section-headline-group">
+                    <h2>Strategic Community Alliances</h2>
+                    <h4 class="section-subtitle">Cooperative efforts to ensure accountability and structural support</h4>
+                </div>
+                
+                <div class="partnership-integration-box">
                     <div class="lfa-logo-box">
-                        <img src="lfa.png" alt="LFA Logo">
+                        <img src="lfa.png" alt="Left For America Logo">
                     </div>
-                    <div>
-                        <h3 style="color: #0b1d33; margin-bottom: 5px;">Left For America (LFA)</h3>
-                        <p style="font-size: 0.95rem; color: #4a5568; margin-bottom: 10px;">
+                    <div class="alliance-details">
+                        <h3>Left For America (LFA) Partnership</h3>
+                        <p style="margin-bottom: 12px;">
                             Als strategischer Partner unterstützt uns die <strong>LFA</strong> im Bereich des transparenten Community-Policings. Die Kooperation fördert den direkten, demokratischen Austausch zwischen den Einwohnern und dem Department, um die Stimmen der Bürger wieder in den Mittelpunkt der Politik zu rücken.
                         </p>
-                        <p style="font-size: 0.95rem; color: #4a5568;">
+                        <p>
                             Gemeinsam setzen wir uns für tiefgreifende gesellschaftliche Säulen ein: Eine progressive <strong>Polizeireform</strong> setzt auf unabhängige Kontrollgremien statt Militarisierung. Zudem unterstützt die Allianz den Erhalt von <strong>Sanctuary Cities</strong> ohne ICE-Kooperation sowie fundamentale Programme wie <strong>Housing First</strong> zur Bekämpfung von Obdachlosigkeit, faire <strong>Living Wages</strong> durch Konzernbesteuerung, <strong>Healthcare for All</strong> als Grundrecht und die Stärkung öffentlicher Schulen als sichere Lernumgebungen (<strong>Safe Spaces</strong>).
                         </p>
                     </div>
                 </div>
             </section>
 
-            <section id="dienststellen" class="page-section">
-                <h2>Dienststellen & Standorte</h2>
-                <hr>
-                <div class="news-card" style="background-color: #fafbfc; padding: 15px; border: 1px solid #e2e8f0;">
-                    <h3>Revierhauptwache (Division Headquarters)</h3>
-                    <p class="date" style="color: #0b1d33; font-weight: bold;">📍 217 Venice Blvd, Los Angeles, CA 90015</p>
-                    <p>Die Hauptwache ist die zentrale Anlaufstelle für die Bevölkerung im Sektor. Geöffnet 24 Stunden am Tag.</p>
+            <section id="stations" class="web-section-card">
+                <div class="section-headline-group">
+                    <h2>Facility Locations & Contact</h2>
+                    <h4 class="section-subtitle">Find your local division headquarters</h4>
+                </div>
+                <div class="station-card-module">
+                    <h3>Central Division Headquarters</h3>
+                    <p style="font-size: 0.9rem; color: #002f6c; font-weight: 700; margin-bottom: 8px;">📍 217 Venice Blvd, Los Angeles, CA 90015</p>
+                    <p style="font-size: 0.9rem; color: #475569;">Die Hauptwache ist die zentrale Anlaufstelle für die Bevölkerung im Sektor. Die Schalterhallen sind 24 Stunden am Tag für Notfallberichte geöffnet.</p>
                 </div>
             </section>
 
-            <section id="karriere" class="page-section">
-                <h2>Karriere beim LAPD</h2>
-                <hr>
-                <p>Die Recruitment Section sucht fortlaufend qualifizierte Bewerber für den Dienst an der Academy. Ein einwandfreies Führungszeugnis ist zwingende Voraussetzung.</p>
-            </section>
-
-            <section id="presseportal" class="page-section">
-                <h2>Presseportal (Media Relations)</h2>
-                <hr>
-                <div class="news-card">
-                    <h3>Zeugenaufruf nach Vorfall im West Bureau</h3>
-                    <p class="date">14. Juni 2026</p>
-                    <p>Die Ermittler bitten die Bevölkerung um sachdienliche Hinweise zu einem Vorfall nahe dem Santa Monica Boulevard.</p>
+            <section id="join" class="web-section-card">
+                <div class="section-headline-group">
+                    <h2>Recruitment & Academy Admissions</h2>
+                    <h4 class="section-subtitle">Begin your career with the Los Angeles Police Department</h4>
                 </div>
+                <p style="font-size: 0.95rem; color: #334155;">Die Recruitment Section sucht fortlaufend qualifizierte Bewerber für den Dienst an der Academy. Ein einwandfreies Führungszeugnis sowie das Bestehen des physischen Leistungstests sind zwingende Voraussetzungen für eine Einstellung.</p>
             </section>
 
         </div>
 
-        <aside class="sidebar">
-            <h3>Online-Dienste</h3>
-            <ul>
-                <li><a href="#karriere">Straftat anzeigen (Online)</a></li>
-                <li><a href="#dienststellen">Wache finden</a></li>
-            </ul>
+        <aside class="web-sidebar-content">
+            
+            <div class="sidebar-widget">
+                <h3>Online Services</h3>
+                <ul class="sidebar-links-list">
+                    <li><a href="#join">File a Police Report</a></li>
+                    <li><a href="#stations">Find a Local Station</a></li>
+                    <li><a href="#newsroom">Recent Crime Statistics</a></li>
+                    <li><a href="#chief">Official Reference Library</a></li>
+                </ul>
+            </div>
 
-            <div class="wichtig-box" style="margin-bottom: 20px;">
-                <h4>Bewerbungsphase</h4>
-                <p>Das Portal nimmt derzeit aktive Bewerbungen über Discord entgegen.</p>
+            <div class="sidebar-widget">
+                <h3>Recruitment Status</h3>
+                <div class="alert-status-box">
+                    <h4>Bewerbungsphase Aktiv</h4>
+                    <p>Das Portal nimmt derzeit aktive Bewerbungen über das verknüpfte Discord-Netzwerk entgegen.</p>
+                </div>
+                <a href="https://discord.gg/KbVJKrfhVP" class="action-button-trigger" target="_blank">Apply Via Discord</a>
             </div>
             
-            <a href="https://discord.gg/KbVJKrfhVP" class="btn-apply" target="_blank">Jetzt über Discord bewerben</a>
         </aside>
 
     </main>
 
-    <footer class="custom-footer">
-        <div class="footer-grid">
+    <footer class="site-footer-structure">
+        <div class="footer-columns-container">
             
-            <div class="footer-col">
-                <h3>ÜBER DAS LAPD</h3>
-                <p>Das Los Angeles Police Department dient über 4 Millionen Menschen im Stadtgebiet von Los Angeles und sorgt for den Schutz von Recht, Ordnung und Verfassung.</p>
-                <p style="margin-top: 15px;"><span class="footer-highlight">Captain:</span> Ethan Walker</p>
-                <p><span class="footer-highlight">Sergeant II:</span> Oliver Lopez</p>
-                <p><span class="footer-highlight">Sergeant I:</span> Jordan McDonnell</p>
-                <p><span class="footer-highlight">Detective III:</span> Jason Reed</p>
+            <div class="footer-block">
+                <h3>About the LAPD</h3>
+                <p>Das Los Angeles Police Department dient über 4 Millionen Menschen im Stadtgebiet von Los Angeles und sorgt für den Schutz von Recht, Ordnung und Verfassung.</p>
+                <p style="margin-top: 15px;"><span class="strong-highlight">Captain:</span> Ethan Walker</p>
+                <p><span class="strong-highlight">Sergeant II:</span> Oliver Lopez</p>
+                <p><span class="strong-highlight">Sergeant I:</span> Jordan McDonnell</p>
+                <p><span class="strong-highlight">Detective III:</span> Jason Reed</p>
             </div>
 
-            <div class="footer-col">
-                <h3>SCHNELLZUGRIFF</h3>
+            <div class="footer-block">
+                <h3>Quick Navigation</h3>
                 <ul>
-                    <li><a href="#startseite">Startseite</a></li>
-                    <li><a href="#fuehrung">Führung</a></li>
-                    <li><a href="#personal">Personal</a></li>
-                    <li><a href="#partnerschaft">LFA</a></li>
-                    <li><a href="#karriere">Karriere</a></li>
+                    <li><a href="#home">Home Portal</a></li>
+                    <li><a href="#chief">Office of the Chief</a></li>
+                    <li><a href="#roster">Active Personnel</a></li>
+                    <li><a href="#partners">LFA Alliance</a></li>
+                    <li><a href="#join">Recruitment</a></li>
                 </ul>
             </div>
 
-            <div class="footer-col">
-                <h3>NOTRUF & KONTAKT</h3>
-                <p><span class="footer-highlight">Notruf:</span> 911</p>
-                <p><span class="footer-highlight">Nicht-Notfall:</span> (480) 929-4303</p>
-                <p><span class="footer-highlight">E-Mail:</span> lapd@no-rp.com</p>
-                <p><a href="https://discord.gg/KbVJKrfhVP" target="_blank">Discord Server</a></p>
+            <div class="footer-block">
+                <h3>Contact Portal</h3>
+                <p><span class="strong-highlight">Emergency:</span> 911</p>
+                <p><span class="strong-highlight">Non-Emergency:</span> (480) 929-4303</p>
+                <p><span class="strong-highlight">Support Email:</span> lapd@no-rp.com</p>
+                <p><a href="https://discord.gg/KbVJKrfhVP" target="_blank" style="text-decoration: underline;">Official Discord Server</a></p>
             </div>
 
-            <div class="footer-col">
-                <h3>RECHTLICHES</h3>
+            <div class="footer-block">
+                <h3>Legal Resources</h3>
                 <ul>
-                    <li><a href="#">Datenschutz</a></li>
-                    <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Barrierefreiheit</a></li>
-                    <li><a href="#">Nutzungsbedingungen</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Accessibility Statement</a></li>
+                    <li><a href="#">City Directory</a></li>
                 </ul>
             </div>
 
         </div>
 
-        <div class="footer-notice-box">
-            <p><span class="footer-notice-title">WICHTIGER HINWEIS:</span> Dies ist eine fiktionale Webseite für den Roleplay-Server „Night of Roleplay“ (NO-RP). Diese Seite hat keine Verbindung zum echten Los Angeles Police Department. Alle Inhalte, Personen und Organisationen dienen ausschliesslich Roleplay-Zwecken. Die dargestellte „Left For America“ ist eine fiktive Organisation im Rahmen des Rollenspiels. Die genannten Charaktere sind fiktional. Keine der hier dargestellten Informationen ist real.</p>
+        <div class="disclaimer-container-fluid">
+            <div class="disclaimer-box-card">
+                <p><span class="disclaimer-header-label">WICHTIGER HINWEIS:</span> Dies ist eine fiktionale Webseite für den Roleplay-Server „Night of Roleplay“ (NO-RP). Diese Seite hat keine Verbindung zum echten Los Angeles Police Department. Alle Inhalte, Personen und Organisationen dienen ausschliesslich Roleplay-Zwecken. Die dargestellte „Left For America“ ist eine fiktive Organisation im Rahmen des Rollenspiels. Die genannten Charaktere sind fiktional. Keine der hier dargestellten Informationen ist real.</p>
+            </div>
         </div>
 
-        <div class="footer-bottom-credits">
-            <p class="footer-copyright">© 2026 Night of Roleplay — LAPD Roleplay Division</p>
-            <p class="footer-slogan">„Zu schützen und zu dienen“</p>
-            <p class="footer-sponsor">Finanziert und unterstuetzt durch die Left For America (LFA) — Night of Roleplay 3.0</p>
+        <div class="footer-bottom-meta">
+            <p>© 2026 Night of Roleplay — LAPD Roleplay Division. All Rights Reserved.</p>
+            <p style="font-style: italic; margin-top: 4px; color: #475569;">„To Protect and to Serve“</p>
+            <p style="margin-top: 10px; color: #002f6c; font-weight: 700;">Finanziert und unterstützt durch die Left For America (LFA) — Night of Roleplay 3.0</p>
         </div>
     </footer>
 
