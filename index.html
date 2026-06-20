@@ -155,18 +155,20 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
+            justify-content: center;
             list-style: none;
             padding: 0 20px;
         }
 
         .nav-container a {
             display: block;
+            white-space: nowrap;
             color: #ffffff;
             text-decoration: none;
-            padding: 18px 18px;
+            padding: 18px 20px;
             font-weight: 700;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: background 0.2s;
@@ -680,6 +682,93 @@
         }
 
         .unit-card p {
+            font-size: 0.84rem;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .fleet-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 8px rgba(15,23,42,0.03);
+        }
+
+        .fleet-img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .fleet-img-placeholder {
+            width: 100%;
+            height: 170px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: repeating-linear-gradient(45deg, #eef2f7, #eef2f7 12px, #e6ebf2 12px, #e6ebf2 24px);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        .fleet-img-placeholder .placeholder-icon {
+            font-size: 1.8rem;
+        }
+
+        .fleet-img-placeholder .placeholder-text {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .fleet-img-placeholder .placeholder-file {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 2px 8px;
+        }
+
+        .fleet-body {
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .fleet-body .fleet-model {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .fleet-body h4 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 2px 0 8px 0;
+        }
+
+        .fleet-body p {
             font-size: 0.84rem;
             color: #475569;
             line-height: 1.4;
@@ -1239,6 +1328,7 @@
             .values-grid,
             .divisions-grid,
             .units-grid,
+            .fleet-grid,
             .rank-grid {
                 grid-template-columns: 1fr;
             }
@@ -1254,7 +1344,7 @@
         <div class="meta-container">
             <div>Stadtverwaltung Los Angeles — Offizielles Webportal</div>
             <ul class="meta-links">
-                <li><a href="#divisions">Divisions</a></li>
+                <li><a href="#fuhrpark">Fuhrpark</a></li>
                 <li><a href="#organisation">Organisation</a></li>
                 <li><a href="#geschichte">Geschichte</a></li>
                 <li><a href="#faq">Hilfe</a></li>
@@ -1282,12 +1372,8 @@
             <li><a href="#home">Startseite</a></li>
             <li><a href="#leitung">Leitung</a></li>
             <li><a href="#roster">Personal</a></li>
-            <li><a href="#auftrag">Auftrag</a></li>
-            <li><a href="#divisions">Divisions</a></li>
             <li><a href="#einheiten">Einheiten</a></li>
-            <li><a href="#organisation">Organisation</a></li>
-            <li><a href="#raenge">Ränge</a></li>
-            <li><a href="#geschichte">Geschichte</a></li>
+            <li><a href="#fuhrpark">Fuhrpark</a></li>
             <li><a href="#station">Dienststelle</a></li>
             <li><a href="#join">Karriere</a></li>
             <li><a href="#news">Presse</a></li>
@@ -1310,9 +1396,9 @@
             <span class="quick-icon">&#128100;</span>
             <span class="quick-label">Personal finden</span>
         </a>
-        <a href="#divisions" class="quick-card">
-            <span class="quick-icon">&#127970;</span>
-            <span class="quick-label">Divisions</span>
+        <a href="#fuhrpark" class="quick-card">
+            <span class="quick-icon">&#128663;</span>
+            <span class="quick-label">Fuhrpark</span>
         </a>
         <a href="#station" class="quick-card">
             <span class="quick-icon">&#128205;</span>
@@ -1331,12 +1417,12 @@
                 <span class="big-label">Geschützte Einwohner</span>
             </div>
             <div class="stat-strip-item">
-                <span class="big-number">21</span>
-                <span class="big-label">Geografische Divisions</span>
+                <span class="big-number">Central</span>
+                <span class="big-label">Unsere Division</span>
             </div>
             <div class="stat-strip-item">
-                <span class="big-number">4</span>
-                <span class="big-label">Operative Bureaus</span>
+                <span class="big-number">3</span>
+                <span class="big-label">Streifenfahrzeuge</span>
             </div>
             <div class="stat-strip-item">
                 <span class="big-number">24 / 7</span>
@@ -1492,151 +1578,65 @@
 
             <section id="divisions" class="content-card">
                 <div class="section-header">
-                    <h2>Geografische Divisions</h2>
-                    <p>21 Community Police Stations in vier operativen Bureaus</p>
+                    <h2>Unsere Division</h2>
+                    <p>Central Division &mdash; Division 01</p>
                 </div>
 
                 <div class="text-block" style="margin-bottom: 22px;">
-                    <p>Das Stadtgebiet von Los Angeles ist in 21 geografische Divisions unterteilt, die jeweils einer eigenen Community Police Station mit eigenem Verantwortungsbereich zugeordnet sind. Diese Stationen sind die erste Anlaufstelle für die Bürger und bilden das Rückgrat des Streifendienstes.</p>
+                    <p>Unsere Dienststelle betreibt ausschlie&szlig;lich die <strong>Central Division</strong> im Herzen von Downtown Los Angeles. Sie ist eine der traditionsreichsten Divisions des Departments und versorgt das dicht bebaute Innenstadtgebiet rund um die Uhr.</p>
+                    <p>Die Central Division verbindet Verwaltung, Streifendienst und b&uuml;rgernahe Polizeiarbeit unter einem Dach. Sie bildet die einzige aktive Station unseres Departments und b&uuml;ndelt alle Einsatzkr&auml;fte an einem Standort.</p>
                 </div>
 
-                <div class="bureau-block">
-                    <div class="bureau-heading">
-                        <h3>Central Bureau</h3>
-                        <span class="bureau-count">5 Divisions</span>
+                <div class="leader-stats-bar" style="margin-bottom: 24px;">
+                    <div class="stat-box">
+                        <span class="stat-value">Division 01</span>
+                        <span class="stat-label">Kennung</span>
                     </div>
-                    <div class="divisions-grid">
-                        <div class="division-card">
-                            <span class="division-code">Division 01</span>
-                            <h4>Central Division</h4>
-                            <p>Innenstadt-Kerngebiet mit Civic Center, Skid Row und dem Financial District.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 02</span>
-                            <h4>Rampart Division</h4>
-                            <p>Dicht besiedelte Wohnviertel westlich der Innenstadt rund um Westlake.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 04</span>
-                            <h4>Hollenbeck Division</h4>
-                            <p>Boyle Heights, Lincoln Heights und El Sereno im Osten der Stadt.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 11</span>
-                            <h4>Northeast Division</h4>
-                            <p>Eagle Rock, Highland Park und Atwater Village im Nordosten.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 13</span>
-                            <h4>Newton Division</h4>
-                            <p>Südlich der Innenstadt gelegenes Industrie- und Wohngebiet.</p>
-                        </div>
+                    <div class="stat-box">
+                        <span class="stat-value">Downtown LA</span>
+                        <span class="stat-label">Zust&auml;ndigkeit</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">24 / 7</span>
+                        <span class="stat-label">Besetzung</span>
                     </div>
                 </div>
 
                 <div class="bureau-block">
                     <div class="bureau-heading">
-                        <h3>South Bureau</h3>
-                        <span class="bureau-count">4 Divisions</span>
+                        <h3>Verantwortungsbereich</h3>
+                        <span class="bureau-count">Downtown LA</span>
                     </div>
                     <div class="divisions-grid">
                         <div class="division-card">
-                            <span class="division-code">Division 03</span>
-                            <h4>Southwest Division</h4>
-                            <p>Gebiet rund um die University of Southern California und Exposition Park.</p>
+                            <span class="division-code">Bereich</span>
+                            <h4>Civic Center</h4>
+                            <p>Beh&ouml;rdenviertel mit Rathaus, Gerichten und Verwaltungsgeb&auml;uden.</p>
                         </div>
                         <div class="division-card">
-                            <span class="division-code">Division 12</span>
-                            <h4>77th Street Division</h4>
-                            <p>Dicht besiedeltes Wohngebiet im Herzen von South Los Angeles.</p>
+                            <span class="division-code">Bereich</span>
+                            <h4>Financial District</h4>
+                            <p>Hochhausviertel mit Banken, B&uuml;rot&uuml;rmen und Gesch&auml;ftszentren.</p>
                         </div>
                         <div class="division-card">
-                            <span class="division-code">Division 18</span>
-                            <h4>Southeast Division</h4>
-                            <p>Watts und angrenzende Viertel im äußersten Süden des Stadtgebiets.</p>
+                            <span class="division-code">Bereich</span>
+                            <h4>Historic Core</h4>
+                            <p>Historischer Stadtkern mit Theatern, Galerien und alten Bankgeb&auml;uden.</p>
                         </div>
                         <div class="division-card">
-                            <span class="division-code">Division 05</span>
-                            <h4>Harbor Division</h4>
-                            <p>Hafengebiet mit San Pedro, Wilmington und Harbor City.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bureau-block">
-                    <div class="bureau-heading">
-                        <h3>Valley Bureau</h3>
-                        <span class="bureau-count">7 Divisions</span>
-                    </div>
-                    <div class="divisions-grid">
-                        <div class="division-card">
-                            <span class="division-code">Division 09</span>
-                            <h4>Van Nuys Division</h4>
-                            <p>Zentrales San Fernando Valley mit dem Verwaltungszentrum von Van Nuys.</p>
+                            <span class="division-code">Bereich</span>
+                            <h4>Little Tokyo</h4>
+                            <p>Lebendiges Kulturviertel mit Restaurants, Gesch&auml;ften und Festen.</p>
                         </div>
                         <div class="division-card">
-                            <span class="division-code">Division 10</span>
-                            <h4>West Valley Division</h4>
-                            <p>Reseda, Tarzana und Encino im westlichen Valley.</p>
+                            <span class="division-code">Bereich</span>
+                            <h4>Arts District</h4>
+                            <p>Umgenutztes Industrieviertel mit Lofts, Studios und Caf&eacute;s.</p>
                         </div>
                         <div class="division-card">
-                            <span class="division-code">Division 15</span>
-                            <h4>North Hollywood Division</h4>
-                            <p>North Hollywood, Valley Village und Studio City.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 16</span>
-                            <h4>Foothill Division</h4>
-                            <p>Sun Valley, Pacoima und Tujunga im Nordosten des Valleys.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 17</span>
-                            <h4>Devonshire Division</h4>
-                            <p>Northridge, Chatsworth und Granada Hills im Nordwesten.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 19</span>
-                            <h4>Mission Division</h4>
-                            <p>Mission Hills, Sylmar und das nördliche San Fernando Valley.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 21</span>
-                            <h4>Topanga Division</h4>
-                            <p>Canoga Park, Woodland Hills und West Hills im äußersten Westen.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bureau-block">
-                    <div class="bureau-heading">
-                        <h3>West Bureau</h3>
-                        <span class="bureau-count">5 Divisions</span>
-                    </div>
-                    <div class="divisions-grid">
-                        <div class="division-card">
-                            <span class="division-code">Division 06</span>
-                            <h4>Hollywood Division</h4>
-                            <p>Hollywood Boulevard, Walk of Fame und das Unterhaltungsviertel.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 07</span>
-                            <h4>Wilshire Division</h4>
-                            <p>Miracle Mile, Hancock Park und der Wilshire-Korridor.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 08</span>
-                            <h4>West Los Angeles Division</h4>
-                            <p>Westwood, Brentwood und Pacific Palisades im Westen der Stadt.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 14</span>
-                            <h4>Pacific Division</h4>
-                            <p>Venice, Mar Vista und der Flughafenbereich von Los Angeles.</p>
-                        </div>
-                        <div class="division-card">
-                            <span class="division-code">Division 20</span>
-                            <h4>Olympic Division</h4>
-                            <p>Koreatown und die dicht besiedelten Viertel der zentralen Westseite.</p>
+                            <span class="division-code">Bereich</span>
+                            <h4>Skid Row</h4>
+                            <p>Sozialer Brennpunkt mit besonderem Bedarf an b&uuml;rgernaher Pr&auml;senz.</p>
                         </div>
                     </div>
                 </div>
@@ -1854,6 +1854,58 @@
                 </ul>
             </section>
 
+            <section id="fuhrpark" class="content-card">
+                <div class="section-header">
+                    <h2>Fuhrpark</h2>
+                    <p>Streifenfahrzeuge der Central Division</p>
+                </div>
+
+                <div class="text-block" style="margin-bottom: 22px;">
+                    <p>Unsere Dienststelle setzt drei Fahrzeugtypen im t&auml;glichen Streifen- und Einsatzdienst ein. Jedes Fahrzeug ist in der klassischen schwarz-wei&szlig;en Lackierung gehalten und voll einsatzbereit ausger&uuml;stet.</p>
+                </div>
+
+                <div class="fleet-grid">
+                    <div class="fleet-card">
+                        <div class="fleet-img-placeholder">
+                            <span class="placeholder-icon">&#128247;</span>
+                            <span class="placeholder-text">Bildplatz</span>
+                            <span class="placeholder-file">vehicle-explorer.png</span>
+                        </div>
+                        <div class="fleet-body">
+                            <span class="fleet-model">SUV / Police Interceptor</span>
+                            <h4>Ford Explorer</h4>
+                            <p>Gel&auml;ndeg&auml;ngiges Einsatzfahrzeug mit viel Platz f&uuml;r Ausr&uuml;stung. Ideal f&uuml;r Streife, Transport und Einsatzlagen mit erh&ouml;htem Materialbedarf.</p>
+                        </div>
+                    </div>
+
+                    <div class="fleet-card">
+                        <div class="fleet-img-placeholder">
+                            <span class="placeholder-icon">&#128247;</span>
+                            <span class="placeholder-text">Bildplatz</span>
+                            <span class="placeholder-file">vehicle-crownvic.png</span>
+                        </div>
+                        <div class="fleet-body">
+                            <span class="fleet-model">Sedan / Police Interceptor</span>
+                            <h4>Ford Crown Victoria</h4>
+                            <p>Der klassische Streifenwagen des Departments. Robust, zuverl&auml;ssig und seit Jahren das Sinnbild der t&auml;glichen Polizeiarbeit.</p>
+                        </div>
+                    </div>
+
+                    <div class="fleet-card">
+                        <div class="fleet-img-placeholder">
+                            <span class="placeholder-icon">&#128247;</span>
+                            <span class="placeholder-text">Bildplatz</span>
+                            <span class="placeholder-file">vehicle-charger.png</span>
+                        </div>
+                        <div class="fleet-body">
+                            <span class="fleet-model">Sedan / Pursuit</span>
+                            <h4>Dodge Charger</h4>
+                            <p>Leistungsstarkes Pursuit-Fahrzeug f&uuml;r schnelle Eins&auml;tze und Verfolgungen. Hohe Motorleistung bei sicherem Fahrverhalten.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section id="station" class="content-card">
                 <div class="section-header">
                     <h2>Standort &amp; Kontakt</h2>
@@ -1936,7 +1988,7 @@
                 </div>
                 <div class="faq-item">
                     <h4>Welche Division ist für mich zuständig?</h4>
-                    <p>Die Zuständigkeit richtet sich nach Ihrem Wohn- oder Tatort. Eine Übersicht aller 21 geografischen Divisions finden Sie im Bereich &bdquo;Divisions&ldquo;.</p>
+                    <p>Unsere Dienststelle betreibt ausschlie&szlig;lich die Central Division im Bereich Downtown Los Angeles. Eine Beschreibung des Verantwortungsbereichs finden Sie im Bereich &bdquo;Unsere Division&ldquo;.</p>
                 </div>
                 <div class="faq-item">
                     <h4>Wie kann ich mich bewerben?</h4>
@@ -1980,7 +2032,7 @@
                 <ul class="link-list">
                     <li><a href="#join">Online-Anzeige erstatten</a></li>
                     <li><a href="#station">Wache finden</a></li>
-                    <li><a href="#divisions">Divisions-Übersicht</a></li>
+                    <li><a href="#fuhrpark">Fuhrpark ansehen</a></li>
                     <li><a href="#raenge">Rangstruktur ansehen</a></li>
                     <li><a href="#news">Kriminalstatistiken</a></li>
                     <li><a href="#geschichte">Informationsarchiv</a></li>
@@ -2015,9 +2067,9 @@
                 <h3>Department in Zahlen</h3>
                 <ul class="fact-list">
                     <li><span class="fact-key">Gegründet</span><span class="fact-val">1869</span></li>
-                    <li><span class="fact-key">Divisions</span><span class="fact-val">21</span></li>
-                    <li><span class="fact-key">Bureaus</span><span class="fact-val">4</span></li>
-                    <li><span class="fact-key">Hauptwache</span><span class="fact-val">Central</span></li>
+                    <li><span class="fact-key">Dienststelle</span><span class="fact-val">Central</span></li>
+                    <li><span class="fact-key">Fahrzeuge</span><span class="fact-val">3</span></li>
+                    <li><span class="fact-key">Standort</span><span class="fact-val">Downtown</span></li>
                     <li><span class="fact-key">Bereitschaft</span><span class="fact-val">24 / 7</span></li>
                 </ul>
             </div>
@@ -2053,8 +2105,8 @@
                     <li><a href="#home">Startseite</a></li>
                     <li><a href="#leitung">Leitung</a></li>
                     <li><a href="#roster">Personal</a></li>
-                    <li><a href="#divisions">Divisions</a></li>
                     <li><a href="#einheiten">Einheiten</a></li>
+                    <li><a href="#fuhrpark">Fuhrpark</a></li>
                     <li><a href="#raenge">Ränge</a></li>
                 </ul>
             </div>
