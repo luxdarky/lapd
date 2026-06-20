@@ -9,6 +9,8 @@
         :root {
             --primary: #002f6c;
             --primary-dark: #001f4d;
+            --primary-light: #0a4ba0;
+            --gold: #c8a24a;
             --danger: #ef4444;
             --bg-light: #f1f5f9;
             --bg-main: #f8fafc;
@@ -31,12 +33,16 @@
             line-height: 1.5;
         }
 
+        a {
+            color: inherit;
+        }
+
         .meta-bar {
-            background-color: var(--bg-light);
-            border-bottom: 1px solid var(--border-color);
+            background-color: var(--primary-dark);
+            border-bottom: 1px solid var(--primary-dark);
             font-size: 0.8rem;
             font-weight: 500;
-            color: var(--text-muted);
+            color: #cbd5e1;
             padding: 8px 20px;
         }
 
@@ -46,10 +52,28 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 15px;
+        }
+
+        .meta-links {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+        }
+
+        .meta-links a {
+            text-decoration: none;
+            color: #cbd5e1;
+            font-weight: 600;
+            transition: color 0.15s;
+        }
+
+        .meta-links a:hover {
+            color: #ffffff;
         }
 
         .emergency-badge {
-            color: var(--danger);
+            color: #fca5a5;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
@@ -90,6 +114,35 @@
             margin-top: 4px;
         }
 
+        .header-search {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-search input {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            width: 220px;
+            background: var(--bg-main);
+        }
+
+        .header-search button {
+            background: var(--primary);
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 16px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+        }
+
         .main-nav {
             background-color: var(--primary);
             position: sticky;
@@ -102,6 +155,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
+            flex-wrap: wrap;
             list-style: none;
             padding: 0 20px;
         }
@@ -110,22 +164,24 @@
             display: block;
             color: #ffffff;
             text-decoration: none;
-            padding: 18px 20px;
+            padding: 18px 18px;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             transition: background 0.2s;
+            border-bottom: 3px solid transparent;
         }
 
         .nav-container a:hover {
             background-color: var(--primary-dark);
+            border-bottom: 3px solid var(--gold);
         }
 
         .hero-banner {
             position: relative;
             background-color: var(--primary-dark);
-            height: 400px;
+            height: 420px;
             overflow: hidden;
         }
 
@@ -133,7 +189,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.75;
+            opacity: 0.7;
         }
 
         .hero-overlay {
@@ -141,9 +197,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,47,108,0.95), transparent);
+            background: linear-gradient(to top, rgba(0,31,77,0.97), transparent);
             color: #ffffff;
-            padding: 40px 20px;
+            padding: 50px 20px 45px 20px;
         }
 
         .hero-content {
@@ -151,25 +207,39 @@
             margin: 0 auto;
         }
 
-        .hero-content h2 {
-            font-size: 2.5rem;
+        .hero-tag {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--primary-dark);
+            font-size: 0.72rem;
             font-weight: 800;
-            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        .hero-content h2 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.1;
         }
 
         .hero-content p {
             font-size: 1.1rem;
             color: #e2e8f0;
-            max-width: 700px;
+            max-width: 720px;
         }
 
         .quick-links-grid {
             max-width: 1200px;
-            margin: -30px auto 40px auto;
+            margin: -34px auto 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
             position: relative;
             z-index: 10;
         }
@@ -190,17 +260,53 @@
             box-shadow: 0 10px 25px rgba(15,23,42,0.12);
         }
 
-        .quick-card span {
+        .quick-card .quick-icon {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .quick-card span.quick-label {
             font-weight: 700;
             color: var(--primary);
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
+        .stat-strip {
+            background: var(--primary);
+            color: #ffffff;
+        }
+
+        .stat-strip-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .stat-strip-item .big-number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            display: block;
+        }
+
+        .stat-strip-item .big-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #93c5fd;
+            margin-top: 4px;
+        }
+
         .page-layout {
             max-width: 1200px;
-            margin: 0 auto 60px auto;
+            margin: 50px auto 60px auto;
             padding: 0 20px;
             display: grid;
             grid-template-columns: 2.2fr 1fr;
@@ -235,6 +341,16 @@
             color: var(--text-muted);
             font-size: 0.9rem;
             margin-top: 4px;
+        }
+
+        .text-block p {
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            color: #334155;
+        }
+
+        .text-block p:last-child {
+            margin-bottom: 0;
         }
 
         .report-item h3 {
@@ -398,6 +514,7 @@
             display: flex;
             gap: 6px;
             margin-top: 12px;
+            flex-wrap: wrap;
         }
 
         .officer-tag {
@@ -410,11 +527,383 @@
             border: 1px solid var(--border-color);
         }
 
+        .mission-statement {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 8px solid var(--gold);
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 25px;
+        }
+
+        .mission-statement small {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #93c5fd;
+            margin-top: 12px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .value-card {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-top: 4px solid var(--primary);
+            border-radius: 6px;
+            padding: 18px;
+        }
+
+        .value-card h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .value-card p {
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        .bureau-block {
+            margin-bottom: 26px;
+        }
+
+        .bureau-heading {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-light);
+            border-left: 5px solid var(--primary);
+            padding: 12px 16px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        .bureau-heading h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .bureau-heading span.bureau-count {
+            margin-left: auto;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .divisions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .division-card {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 14px 16px;
+            background: #ffffff;
+            transition: box-shadow 0.15s, transform 0.15s;
+        }
+
+        .division-card:hover {
+            box-shadow: 0 6px 18px rgba(15,23,42,0.08);
+            transform: translateY(-2px);
+        }
+
+        .division-card h4 {
+            font-size: 0.98rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .division-card .division-code {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .division-card p {
+            font-size: 0.82rem;
+            color: #475569;
+            margin-top: 6px;
+            line-height: 1.35;
+        }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .unit-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px;
+            background: var(--bg-main);
+        }
+
+        .unit-card .unit-icon {
+            font-size: 1.6rem;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .unit-card h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .unit-card p {
+            font-size: 0.84rem;
+            color: #475569;
+            line-height: 1.4;
+        }
+
+        .org-list {
+            list-style: none;
+        }
+
+        .org-list > li {
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .org-list .org-top {
+            background: var(--primary);
+            color: #ffffff;
+            padding: 12px 16px;
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .org-list .org-sub {
+            padding: 12px 16px;
+            font-size: 0.85rem;
+            color: #475569;
+            line-height: 1.5;
+        }
+
+        .org-list .org-sub strong {
+            color: var(--text-dark);
+        }
+
+        .rank-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .rank-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px 14px;
+            background: #ffffff;
+        }
+
+        .rank-badge {
+            width: 38px;
+            height: 38px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rank-text h4 {
+            font-size: 0.92rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .rank-text p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .history-timeline {
+            list-style: none;
+            position: relative;
+            padding-left: 28px;
+        }
+
+        .history-timeline::before {
+            content: "";
+            position: absolute;
+            left: 8px;
+            top: 6px;
+            bottom: 6px;
+            width: 3px;
+            background: var(--border-color);
+        }
+
+        .history-timeline li {
+            position: relative;
+            margin-bottom: 22px;
+        }
+
+        .history-timeline li::before {
+            content: "";
+            position: absolute;
+            left: -24px;
+            top: 4px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .history-timeline .timeline-year {
+            font-weight: 800;
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+
+        .history-timeline p {
+            font-size: 0.86rem;
+            color: #475569;
+            margin-top: 3px;
+            line-height: 1.4;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+
+        .faq-item p {
+            font-size: 0.88rem;
+            color: #475569;
+            line-height: 1.45;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .process-step {
+            text-align: center;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px 12px;
+            background: var(--bg-main);
+        }
+
+        .process-step .step-num {
+            width: 34px;
+            height: 34px;
+            margin: 0 auto 10px auto;
+            border-radius: 50%;
+            background: var(--primary);
+            color: #ffffff;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .process-step h4 {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        .requirements-list {
+            list-style: none;
+            margin-top: 18px;
+        }
+
+        .requirements-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 9px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 0.9rem;
+            color: #334155;
+        }
+
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+
+        .requirements-list .check {
+            color: #16a34a;
+            font-weight: 800;
+        }
+
         .location-box {
             background: var(--bg-main);
             padding: 20px;
             border-radius: 6px;
             border: 1px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .location-box h3 {
+            color: var(--primary);
+            font-size: 1.05rem;
+            font-weight: 800;
         }
 
         .location-address {
@@ -422,6 +911,25 @@
             font-weight: 700;
             font-size: 1.05rem;
             margin: 6px 0;
+        }
+
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 6px;
+            font-size: 0.85rem;
+        }
+
+        .hours-table td {
+            padding: 7px 4px;
+            border-bottom: 1px solid var(--border-color);
+            color: #475569;
+        }
+
+        .hours-table td:last-child {
+            text-align: right;
+            font-weight: 700;
+            color: var(--text-dark);
         }
 
         .sidebar-area {
@@ -487,6 +995,95 @@
             font-size: 0.85rem;
             color: #166534;
             margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .crime-stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--bg-light);
+            font-size: 0.88rem;
+        }
+
+        .crime-stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .crime-stat-row .label {
+            color: #475569;
+            font-weight: 600;
+        }
+
+        .crime-stat-row .value {
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .crime-stat-row .trend-down {
+            color: #16a34a;
+            font-weight: 800;
+        }
+
+        .crime-stat-row .trend-up {
+            color: var(--danger);
+            font-weight: 800;
+        }
+
+        .fact-list {
+            list-style: none;
+        }
+
+        .fact-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 9px 0;
+            border-bottom: 1px solid var(--bg-light);
+            font-size: 0.85rem;
+        }
+
+        .fact-list li:last-child {
+            border-bottom: none;
+        }
+
+        .fact-list .fact-key {
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .fact-list .fact-val {
+            color: var(--text-dark);
+            font-weight: 800;
+        }
+
+        .emergency-widget {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-left: 4px solid var(--danger);
+            padding: 18px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+
+        .emergency-widget h3 {
+            color: #991b1b;
+            border: none;
+            padding: 0;
+            margin-bottom: 8px;
+        }
+
+        .emergency-widget .big-call {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--danger);
+            line-height: 1;
+        }
+
+        .emergency-widget p {
+            font-size: 0.82rem;
+            color: #7f1d1d;
+            margin-top: 8px;
             line-height: 1.4;
         }
 
@@ -598,8 +1195,17 @@
                 grid-template-columns: repeat(2, 1fr);
                 margin-top: 10px;
             }
+            .stat-strip-inner {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .roster-grid {
                 grid-template-columns: 1fr;
+            }
+            .header-search {
+                display: none;
+            }
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -630,6 +1236,15 @@
             .quick-links-grid {
                 grid-template-columns: 1fr;
             }
+            .values-grid,
+            .divisions-grid,
+            .units-grid,
+            .rank-grid {
+                grid-template-columns: 1fr;
+            }
+            .meta-links {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -638,7 +1253,13 @@
     <div class="meta-bar">
         <div class="meta-container">
             <div>Stadtverwaltung Los Angeles — Offizielles Webportal</div>
-            <div class="emergency-badge">NOTRUF: 911</div>
+            <ul class="meta-links">
+                <li><a href="#divisions">Divisions</a></li>
+                <li><a href="#organisation">Organisation</a></li>
+                <li><a href="#geschichte">Geschichte</a></li>
+                <li><a href="#faq">Hilfe</a></li>
+                <li class="emergency-badge">NOTRUF: 911</li>
+            </ul>
         </div>
     </div>
 
@@ -649,14 +1270,24 @@
                 <h1>LOS ANGELES POLICE DEPARTMENT</h1>
                 <p>Zu schützen und zu dienen</p>
             </div>
+            <div class="header-search">
+                <input type="text" placeholder="Webportal durchsuchen ...">
+                <button type="button">Suchen</button>
+            </div>
         </div>
     </header>
 
     <nav class="main-nav">
         <ul class="nav-container">
             <li><a href="#home">Startseite</a></li>
-            <li><a href="#leitung">Dienststellenleitung</a></li>
+            <li><a href="#leitung">Leitung</a></li>
             <li><a href="#roster">Personal</a></li>
+            <li><a href="#auftrag">Auftrag</a></li>
+            <li><a href="#divisions">Divisions</a></li>
+            <li><a href="#einheiten">Einheiten</a></li>
+            <li><a href="#organisation">Organisation</a></li>
+            <li><a href="#raenge">Ränge</a></li>
+            <li><a href="#geschichte">Geschichte</a></li>
             <li><a href="#station">Dienststelle</a></li>
             <li><a href="#join">Karriere</a></li>
             <li><a href="#news">Presse</a></li>
@@ -667,43 +1298,61 @@
         <img src="hero-banner.jpg" alt="LAPD Einheiten" class="hero-image">
         <div class="hero-overlay">
             <div class="hero-content">
+                <span class="hero-tag">Offizielles Departmentportal</span>
                 <h2>Verpflichtung zu rechtsstaatlicher Polizeiarbeit</h2>
-                <p>Vertrauen aufbauen durch transparente Partnerschaften in der Gemeinde und professionellen Dienst in ganz Los Angeles.</p>
+                <p>Vertrauen aufbauen durch transparente Partnerschaften in der Gemeinde und professionellen Dienst in ganz Los Angeles — rund um die Uhr, an 365 Tagen im Jahr.</p>
             </div>
         </div>
     </section>
 
     <section class="quick-links-grid">
-        <a href="#roster" class="quick-card"><span>Personal finden</span></a>
-        <a href="#station" class="quick-card"><span>Unsere Dienststelle</span></a>
-        <a href="#news" class="quick-card"><span>Presseportal</span></a>
+        <a href="#roster" class="quick-card">
+            <span class="quick-icon">&#128100;</span>
+            <span class="quick-label">Personal finden</span>
+        </a>
+        <a href="#divisions" class="quick-card">
+            <span class="quick-icon">&#127970;</span>
+            <span class="quick-label">Divisions</span>
+        </a>
+        <a href="#station" class="quick-card">
+            <span class="quick-icon">&#128205;</span>
+            <span class="quick-label">Unsere Dienststelle</span>
+        </a>
+        <a href="#join" class="quick-card">
+            <span class="quick-icon">&#128737;</span>
+            <span class="quick-label">Karriere starten</span>
+        </a>
+    </section>
+
+    <section class="stat-strip">
+        <div class="stat-strip-inner">
+            <div class="stat-strip-item">
+                <span class="big-number">4 Mio.+</span>
+                <span class="big-label">Geschützte Einwohner</span>
+            </div>
+            <div class="stat-strip-item">
+                <span class="big-number">21</span>
+                <span class="big-label">Geografische Divisions</span>
+            </div>
+            <div class="stat-strip-item">
+                <span class="big-number">4</span>
+                <span class="big-label">Operative Bureaus</span>
+            </div>
+            <div class="stat-strip-item">
+                <span class="big-number">24 / 7</span>
+                <span class="big-label">Einsatzbereitschaft</span>
+            </div>
+        </div>
     </section>
 
     <main class="page-layout">
-        
-        <div class="main-content-flow">
 
-            <section id="news" class="content-card">
-                <div class="section-header">
-                    <h2>Presseportal</h2>
-                    <p>Aktuelle Meldungen und Medienberichte</p>
-                </div>
-                
-                <div class="report-item">
-                    <h3>Abschlussbericht: Bewaffneter Angriff auf Gerichtsgebäude an der Melrose Ave neutralisiert</h3>
-                    <span class="report-meta">15. Juni 2026 — Einsatzbericht</span>
-                    <div class="report-body">
-                        <p>Das Los Angeles Police Department (LAPD) und das Los Angeles County Sheriff's Department (LASD) legen den aktuellen Ermittlungsstand zum Vorfall an der <strong>585 Melrose Ave</strong> vor.</p>
-                        <p>Zwei koordinierte Täter griffen das Areal an. Einer steuerte ein Kleinflugzeug, das im Luftraum abstürzte. Zeitgleich attackierte ein zweiter Täter den Außenbereich am Boden. Sichergestellt wurden eine IWI Tavor CTAR-21 Langwaffe und eine Glock 19.</p>
-                        <p>Durch das schnelle Erwidern des Feuers wurden beide Tatverdächtige gestoppt (vor Ort verstorben). Keine Verluste bei Bürgern oder Beamten. Das Detektivbüro hat den Fall übernommen.</p>
-                    </div>
-                </div>
-            </section>
+        <div class="main-content-flow">
 
             <section id="leitung" class="content-card">
                 <div class="section-header">
                     <h2>Büro der Dienststellenleitung</h2>
-                    <p>Lokale Behördenleitung & Strategie</p>
+                    <p>Lokale Behördenleitung &amp; Strategie</p>
                 </div>
 
                 <div class="leader-profile">
@@ -711,7 +1360,7 @@
                     <div class="leader-details">
                         <h3>Captain Ethan Walker</h3>
                         <p class="leader-title">Leiter des Departments</p>
-                        
+
                         <div class="leader-stats-bar">
                             <div class="stat-box">
                                 <span class="stat-value">10+ Jahre</span>
@@ -732,7 +1381,7 @@
                         </p>
 
                         <div class="leader-quote">
-                            „Unser Eid gilt der Verfassung und dem verlässlichen Schutz aller Bürger von Los Angeles.“
+                            &bdquo;Unser Eid gilt der Verfassung und dem verlässlichen Schutz aller Bürger von Los Angeles.&ldquo;
                         </div>
                     </div>
                 </div>
@@ -743,9 +1392,9 @@
                     <h2>Aktiver Dienstplan</h2>
                     <p>Derzeitige Besetzung der Dienststelle</p>
                 </div>
-                
+
                 <div class="roster-grid">
-                    
+
                     <div class="officer-card">
                         <img src="Ethan Walker.png" alt="Ethan Walker" class="officer-thumb">
                         <div class="officer-info">
@@ -797,35 +1446,579 @@
                 </div>
             </section>
 
+            <section id="auftrag" class="content-card">
+                <div class="section-header">
+                    <h2>Auftrag &amp; Leitwerte</h2>
+                    <p>Das Fundament unserer täglichen Polizeiarbeit</p>
+                </div>
+
+                <div class="mission-statement">
+                    Es ist der Auftrag des Los Angeles Police Department, das Leben und das Eigentum der Menschen, denen wir dienen, zu schützen.
+                    <small>Mission Statement des LAPD</small>
+                </div>
+
+                <div class="text-block">
+                    <p>Das LAPD verfolgt das Ziel, Kriminalität zu reduzieren und die Lebensqualität in allen Stadtteilen zu verbessern. Die Beamtinnen und Beamten arbeiten in enger Partnerschaft mit den Gemeinden, um Sicherheit, Vertrauen und gegenseitigen Respekt herzustellen.</p>
+                    <p>Jede Entscheidung wird an der Verfassung, an den Gesetzen des Bundesstaates Kalifornien sowie an den ethischen Grundsätzen des Departments gemessen. Verantwortlichkeit, Transparenz und Bürgernähe stehen im Mittelpunkt des Dienstes.</p>
+                </div>
+
+                <div class="values-grid" style="margin-top: 22px;">
+                    <div class="value-card">
+                        <h4>Dienst an der Gemeinde</h4>
+                        <p>Wir stellen die Bedürfnisse der Bürger in den Mittelpunkt und begegnen jeder Person mit Würde.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Achtung vor dem Gesetz</h4>
+                        <p>Wir handeln stets im Rahmen der Verfassung und der geltenden Gesetze.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Verpflichtung zur Führung</h4>
+                        <p>Wir übernehmen Verantwortung und gehen mit gutem Beispiel voran.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Integrität in allem Handeln</h4>
+                        <p>Wir sind ehrlich, verlässlich und stehen zu unseren Entscheidungen.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Respekt für Menschen</h4>
+                        <p>Wir behandeln Kolleginnen, Kollegen und Bürger fair und vorurteilsfrei.</p>
+                    </div>
+                    <div class="value-card">
+                        <h4>Qualität durch stetige Verbesserung</h4>
+                        <p>Wir lernen kontinuierlich dazu und entwickeln unsere Arbeit weiter.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="divisions" class="content-card">
+                <div class="section-header">
+                    <h2>Geografische Divisions</h2>
+                    <p>21 Community Police Stations in vier operativen Bureaus</p>
+                </div>
+
+                <div class="text-block" style="margin-bottom: 22px;">
+                    <p>Das Stadtgebiet von Los Angeles ist in 21 geografische Divisions unterteilt, die jeweils einer eigenen Community Police Station mit eigenem Verantwortungsbereich zugeordnet sind. Diese Stationen sind die erste Anlaufstelle für die Bürger und bilden das Rückgrat des Streifendienstes.</p>
+                </div>
+
+                <div class="bureau-block">
+                    <div class="bureau-heading">
+                        <h3>Central Bureau</h3>
+                        <span class="bureau-count">5 Divisions</span>
+                    </div>
+                    <div class="divisions-grid">
+                        <div class="division-card">
+                            <span class="division-code">Division 01</span>
+                            <h4>Central Division</h4>
+                            <p>Innenstadt-Kerngebiet mit Civic Center, Skid Row und dem Financial District.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 02</span>
+                            <h4>Rampart Division</h4>
+                            <p>Dicht besiedelte Wohnviertel westlich der Innenstadt rund um Westlake.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 04</span>
+                            <h4>Hollenbeck Division</h4>
+                            <p>Boyle Heights, Lincoln Heights und El Sereno im Osten der Stadt.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 11</span>
+                            <h4>Northeast Division</h4>
+                            <p>Eagle Rock, Highland Park und Atwater Village im Nordosten.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 13</span>
+                            <h4>Newton Division</h4>
+                            <p>Südlich der Innenstadt gelegenes Industrie- und Wohngebiet.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bureau-block">
+                    <div class="bureau-heading">
+                        <h3>South Bureau</h3>
+                        <span class="bureau-count">4 Divisions</span>
+                    </div>
+                    <div class="divisions-grid">
+                        <div class="division-card">
+                            <span class="division-code">Division 03</span>
+                            <h4>Southwest Division</h4>
+                            <p>Gebiet rund um die University of Southern California und Exposition Park.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 12</span>
+                            <h4>77th Street Division</h4>
+                            <p>Dicht besiedeltes Wohngebiet im Herzen von South Los Angeles.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 18</span>
+                            <h4>Southeast Division</h4>
+                            <p>Watts und angrenzende Viertel im äußersten Süden des Stadtgebiets.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 05</span>
+                            <h4>Harbor Division</h4>
+                            <p>Hafengebiet mit San Pedro, Wilmington und Harbor City.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bureau-block">
+                    <div class="bureau-heading">
+                        <h3>Valley Bureau</h3>
+                        <span class="bureau-count">7 Divisions</span>
+                    </div>
+                    <div class="divisions-grid">
+                        <div class="division-card">
+                            <span class="division-code">Division 09</span>
+                            <h4>Van Nuys Division</h4>
+                            <p>Zentrales San Fernando Valley mit dem Verwaltungszentrum von Van Nuys.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 10</span>
+                            <h4>West Valley Division</h4>
+                            <p>Reseda, Tarzana und Encino im westlichen Valley.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 15</span>
+                            <h4>North Hollywood Division</h4>
+                            <p>North Hollywood, Valley Village und Studio City.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 16</span>
+                            <h4>Foothill Division</h4>
+                            <p>Sun Valley, Pacoima und Tujunga im Nordosten des Valleys.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 17</span>
+                            <h4>Devonshire Division</h4>
+                            <p>Northridge, Chatsworth und Granada Hills im Nordwesten.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 19</span>
+                            <h4>Mission Division</h4>
+                            <p>Mission Hills, Sylmar und das nördliche San Fernando Valley.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 21</span>
+                            <h4>Topanga Division</h4>
+                            <p>Canoga Park, Woodland Hills und West Hills im äußersten Westen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bureau-block">
+                    <div class="bureau-heading">
+                        <h3>West Bureau</h3>
+                        <span class="bureau-count">5 Divisions</span>
+                    </div>
+                    <div class="divisions-grid">
+                        <div class="division-card">
+                            <span class="division-code">Division 06</span>
+                            <h4>Hollywood Division</h4>
+                            <p>Hollywood Boulevard, Walk of Fame und das Unterhaltungsviertel.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 07</span>
+                            <h4>Wilshire Division</h4>
+                            <p>Miracle Mile, Hancock Park und der Wilshire-Korridor.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 08</span>
+                            <h4>West Los Angeles Division</h4>
+                            <p>Westwood, Brentwood und Pacific Palisades im Westen der Stadt.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 14</span>
+                            <h4>Pacific Division</h4>
+                            <p>Venice, Mar Vista und der Flughafenbereich von Los Angeles.</p>
+                        </div>
+                        <div class="division-card">
+                            <span class="division-code">Division 20</span>
+                            <h4>Olympic Division</h4>
+                            <p>Koreatown und die dicht besiedelten Viertel der zentralen Westseite.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="einheiten" class="content-card">
+                <div class="section-header">
+                    <h2>Spezialeinheiten &amp; Fachdienste</h2>
+                    <p>Spezialisierte Einheiten für besondere Einsatzlagen</p>
+                </div>
+
+                <div class="units-grid">
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128737;</span>
+                        <h4>Metropolitan Division</h4>
+                        <p>Hochmobile Eliteeinheit für Schwerpunkteinsätze, Kriminalitätsbekämpfung und besondere Lagen im gesamten Stadtgebiet.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#127919;</span>
+                        <h4>SWAT (D-Platoon)</h4>
+                        <p>Special Weapons and Tactics. Spezialkräfte für Geiselnahmen, Barrikadenlagen und Hochrisiko-Festnahmen.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128745;</span>
+                        <h4>Air Support Division</h4>
+                        <p>Polizeihubschrauberstaffel zur Luftunterstützung von Streifen, Verfolgungen und Großlagen.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128021;</span>
+                        <h4>K-9 Unit</h4>
+                        <p>Diensthundeführer für Personensuche, Sprengstoff- und Betäubungsmittelaufspürung.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128373;</span>
+                        <h4>Robbery-Homicide Division</h4>
+                        <p>Zentrale Ermittlungseinheit für schwere Raub- und Kapitaldelikte mit stadtweiter Zuständigkeit.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128299;</span>
+                        <h4>Gang &amp; Narcotics Division</h4>
+                        <p>Bekämpfung von Bandenkriminalität und organisiertem Drogenhandel.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128663;</span>
+                        <h4>Traffic Group</h4>
+                        <p>Verkehrsüberwachung, Unfallaufnahme und Ermittlung bei Verkehrsdelikten.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128376;</span>
+                        <h4>Mounted Unit</h4>
+                        <p>Berittene Einheit für Crowd-Control, Parkstreifen und Repräsentationsdienste.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#128270;</span>
+                        <h4>Detective Bureau</h4>
+                        <p>Kriminalpolizeiliche Ermittlungen, Spurensicherung und Fallbearbeitung.</p>
+                    </div>
+                    <div class="unit-card">
+                        <span class="unit-icon">&#9878;</span>
+                        <h4>Internal Affairs Group</h4>
+                        <p>Interne Ermittlungen zur Sicherung von Integrität und Dienstaufsicht.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="organisation" class="content-card">
+                <div class="section-header">
+                    <h2>Organisation des Departments</h2>
+                    <p>Aufbau der Führungs- und Bureau-Struktur</p>
+                </div>
+
+                <ul class="org-list">
+                    <li>
+                        <div class="org-top">Office of the Chief of Police</div>
+                        <div class="org-sub">Oberste Leitung des Departments. Verantwortlich für Strategie, Ressourcen und die Gesamtaufsicht über alle Bureaus und Divisions.</div>
+                    </li>
+                    <li>
+                        <div class="org-top">Office of Operations</div>
+                        <div class="org-sub">Größtes Büro des Departments. Steuert den gesamten Streifen- und Einsatzdienst über die vier geografischen Bureaus: <strong>Central</strong>, <strong>South</strong>, <strong>Valley</strong> und <strong>West</strong>.</div>
+                    </li>
+                    <li>
+                        <div class="org-top">Detective Bureau</div>
+                        <div class="org-sub">Bündelt die kriminalpolizeilichen Ermittlungen, darunter <strong>Robbery-Homicide</strong>, <strong>Major Crimes</strong> sowie <strong>Gang and Narcotics</strong>.</div>
+                    </li>
+                    <li>
+                        <div class="org-top">Counter-Terrorism &amp; Special Operations Bureau</div>
+                        <div class="org-sub">Verantwortlich für <strong>Metropolitan Division</strong> (inkl. SWAT und K-9), <strong>Air Support</strong> sowie Terrorabwehr und Lagezentrum.</div>
+                    </li>
+                    <li>
+                        <div class="org-top">Professional Standards Bureau</div>
+                        <div class="org-sub">Sichert Integrität und Disziplin durch <strong>Internal Affairs</strong> und die interne Dienstaufsicht.</div>
+                    </li>
+                    <li>
+                        <div class="org-top">Office of Administrative &amp; Support Services</div>
+                        <div class="org-sub">Personal, Ausbildung an der Akademie, Technik, Fuhrpark und Logistik für den laufenden Betrieb.</div>
+                    </li>
+                </ul>
+            </section>
+
+            <section id="raenge" class="content-card">
+                <div class="section-header">
+                    <h2>Rangstruktur</h2>
+                    <p>Dienstgrade vom Streifendienst bis zur Departmentleitung</p>
+                </div>
+
+                <div class="rank-grid">
+                    <div class="rank-item">
+                        <div class="rank-badge">PO</div>
+                        <div class="rank-text">
+                            <h4>Police Officer I &ndash; III</h4>
+                            <p>Streifen- und Einsatzdienst</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">DET</div>
+                        <div class="rank-text">
+                            <h4>Detective I &ndash; III</h4>
+                            <p>Ermittlungsdienst</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">SGT</div>
+                        <div class="rank-text">
+                            <h4>Sergeant I &ndash; II</h4>
+                            <p>Gruppen- und Schichtführung</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">LT</div>
+                        <div class="rank-text">
+                            <h4>Lieutenant I &ndash; II</h4>
+                            <p>Wachabschnittsleitung</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">CPT</div>
+                        <div class="rank-text">
+                            <h4>Captain I &ndash; III</h4>
+                            <p>Leitung einer Division</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">CMD</div>
+                        <div class="rank-text">
+                            <h4>Commander</h4>
+                            <p>Stellvertretende Bureau-Leitung</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">DC</div>
+                        <div class="rank-text">
+                            <h4>Deputy Chief</h4>
+                            <p>Leitung eines Bureaus</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">AC</div>
+                        <div class="rank-text">
+                            <h4>Assistant Chief</h4>
+                            <p>Oberste Führungsebene</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">COP</div>
+                        <div class="rank-text">
+                            <h4>Chief of Police</h4>
+                            <p>Leitung des gesamten Departments</p>
+                        </div>
+                    </div>
+                    <div class="rank-item">
+                        <div class="rank-badge">REC</div>
+                        <div class="rank-text">
+                            <h4>Recruit / Cadet</h4>
+                            <p>Ausbildung an der Akademie</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="geschichte" class="content-card">
+                <div class="section-header">
+                    <h2>Geschichte des Departments</h2>
+                    <p>Meilensteine aus über 150 Jahren Polizeiarbeit</p>
+                </div>
+
+                <ul class="history-timeline">
+                    <li>
+                        <span class="timeline-year">1869</span>
+                        <p>Gründung des Los Angeles Police Department als kleine Stadtpolizei mit nur wenigen Beamten.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-year">1910</span>
+                        <p>Einstellung der ersten Polizeibeamtin und Aufbau erster spezialisierter Dienststellen.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-year">1923</span>
+                        <p>Aufbau einer eigenen Polizeiakademie zur einheitlichen Ausbildung neuer Beamter.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-year">1955</span>
+                        <p>Das Motto &bdquo;to protect and to serve&ldquo; &mdash; &bdquo;Zu schützen und zu dienen&ldquo; &mdash; wird offiziell eingeführt.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-year">1967</span>
+                        <p>Gründung der ersten SWAT-Einheit zur Bewältigung von Hochrisiko-Einsatzlagen.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-year">1968</span>
+                        <p>Einführung des einheitlichen Notrufs 911 als zentrale Anlaufstelle für Bürger.</p>
+                    </li>
+                    <li>
+                        <span class="timeline-year">Heute</span>
+                        <p>Das LAPD zählt zu den größten Polizeibehörden der Vereinigten Staaten und schützt über vier Millionen Einwohner.</p>
+                    </li>
+                </ul>
+            </section>
+
             <section id="station" class="content-card">
                 <div class="section-header">
-                    <h2>Standort & Kontakt</h2>
+                    <h2>Standort &amp; Kontakt</h2>
+                    <p>So erreichen Sie unsere Dienststelle</p>
                 </div>
                 <div class="location-box">
                     <h3>Central Division Hauptwache</h3>
-                    <p class="location-address">📍 217 Venice Blvd, Los Angeles, CA 90015</p>
+                    <p class="location-address">&#128205; 217 Venice Blvd, Los Angeles, CA 90015</p>
                     <p style="font-size: 0.9rem; color: #475569; margin-top: 6px;">Die Station ist 24/7 besetzt. Anzeigenaufnahmen und Notfallmeldungen sind jederzeit am Schalter möglich.</p>
                 </div>
+
+                <table class="hours-table">
+                    <tr>
+                        <td>Schalterdienst (Anzeigen)</td>
+                        <td>Mo &ndash; So, 24 Stunden</td>
+                    </tr>
+                    <tr>
+                        <td>Bürgertelefon</td>
+                        <td>(480) 929-4303</td>
+                    </tr>
+                    <tr>
+                        <td>Notruf</td>
+                        <td>911</td>
+                    </tr>
+                    <tr>
+                        <td>E-Mail</td>
+                        <td>lapd@no-rp.com</td>
+                    </tr>
+                </table>
             </section>
 
             <section id="join" class="content-card">
                 <div class="section-header">
                     <h2>Einstellungsverfahren</h2>
+                    <p>Werde Teil des Los Angeles Police Department</p>
                 </div>
                 <p style="font-size: 0.95rem; color: #334155;">Die Rekrutierungsabteilung prüft laufend neue Bewerbungen. Voraussetzungen sind ein sauberes Führungszeugnis sowie das Bestehen des Sporttests an der Akademie.</p>
+
+                <div class="process-grid">
+                    <div class="process-step">
+                        <div class="step-num">1</div>
+                        <h4>Bewerbung</h4>
+                        <p>Online-Bewerbung über das Discord-Netzwerk einreichen.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">2</div>
+                        <h4>Gespräch</h4>
+                        <p>Persönliches Auswahl- und Eignungsgespräch.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">3</div>
+                        <h4>Akademie</h4>
+                        <p>Ausbildung mit Recht, Taktik und Sporttest.</p>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-num">4</div>
+                        <h4>Streifendienst</h4>
+                        <p>Einsatz mit erfahrenem Field Training Officer.</p>
+                    </div>
+                </div>
+
+                <ul class="requirements-list">
+                    <li><span class="check">&#10003;</span> Sauberes Führungszeugnis ohne offene Verfahren</li>
+                    <li><span class="check">&#10003;</span> Bestehen des körperlichen Eignungstests an der Akademie</li>
+                    <li><span class="check">&#10003;</span> Bereitschaft zu Schicht- und Wochenenddienst</li>
+                    <li><span class="check">&#10003;</span> Teamfähigkeit, Belastbarkeit und ein ruhiges Auftreten</li>
+                    <li><span class="check">&#10003;</span> Aktiver Account im Discord-Netzwerk des Servers</li>
+                </ul>
+            </section>
+
+            <section id="faq" class="content-card">
+                <div class="section-header">
+                    <h2>Häufige Fragen</h2>
+                    <p>Antworten rund um Anzeigen, Karriere und Kontakt</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>Wie erstatte ich eine Anzeige?</h4>
+                    <p>Anzeigen können rund um die Uhr am Schalter der Central Division Hauptwache oder telefonisch über das Bürgertelefon aufgenommen werden. In Notfällen wählen Sie immer die 911.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Welche Division ist für mich zuständig?</h4>
+                    <p>Die Zuständigkeit richtet sich nach Ihrem Wohn- oder Tatort. Eine Übersicht aller 21 geografischen Divisions finden Sie im Bereich &bdquo;Divisions&ldquo;.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Wie kann ich mich bewerben?</h4>
+                    <p>Die Bewerbung erfolgt über unseren Discord-Server. Nach Eingang prüft die Rekrutierungsabteilung Ihre Unterlagen und lädt zum Gespräch ein.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Wann ist die Dienststelle erreichbar?</h4>
+                    <p>Die Hauptwache ist an 365 Tagen im Jahr rund um die Uhr besetzt. Notfallmeldungen werden jederzeit entgegengenommen.</p>
+                </div>
+            </section>
+
+            <section id="news" class="content-card">
+                <div class="section-header">
+                    <h2>Presseportal</h2>
+                    <p>Aktuelle Meldungen und Medienberichte</p>
+                </div>
+
+                <div class="report-item">
+                    <h3>Abschlussbericht: Bewaffneter Angriff auf Gerichtsgebäude an der Melrose Ave neutralisiert</h3>
+                    <span class="report-meta">15. Juni 2026 — Einsatzbericht</span>
+                    <div class="report-body">
+                        <p>Das Los Angeles Police Department (LAPD) und das Los Angeles County Sheriff's Department (LASD) legen den aktuellen Ermittlungsstand zum Vorfall an der <strong>585 Melrose Ave</strong> vor.</p>
+                        <p>Zwei koordinierte Täter griffen das Areal an. Einer steuerte ein Kleinflugzeug, das im Luftraum abstürzte. Zeitgleich attackierte ein zweiter Täter den Außenbereich am Boden. Sichergestellt wurden eine IWI Tavor CTAR-21 Langwaffe und eine Glock 19.</p>
+                        <p>Durch das schnelle Erwidern des Feuers wurden beide Tatverdächtige gestoppt (vor Ort verstorben). Keine Verluste bei Bürgern oder Beamten. Das Detektivbüro hat den Fall übernommen.</p>
+                    </div>
+                </div>
             </section>
 
         </div>
 
         <aside class="sidebar-area">
-            
+
+            <div class="emergency-widget">
+                <h3>Im Notfall</h3>
+                <span class="big-call">911</span>
+                <p>Bei akuter Gefahr für Leib, Leben oder Eigentum wählen Sie sofort den Notruf. Für nicht dringende Anliegen nutzen Sie das Bürgertelefon.</p>
+            </div>
+
             <div class="sidebar-widget">
                 <h3>Online-Services</h3>
                 <ul class="link-list">
                     <li><a href="#join">Online-Anzeige erstatten</a></li>
                     <li><a href="#station">Wache finden</a></li>
+                    <li><a href="#divisions">Divisions-Übersicht</a></li>
+                    <li><a href="#raenge">Rangstruktur ansehen</a></li>
                     <li><a href="#news">Kriminalstatistiken</a></li>
-                    <li><a href="#leitung">Informationsarchiv</a></li>
+                    <li><a href="#geschichte">Informationsarchiv</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Kriminalstatistik</h3>
+                <div class="crime-stat-row">
+                    <span class="label">Einsätze (30 Tage)</span>
+                    <span class="value">1.284</span>
+                </div>
+                <div class="crime-stat-row">
+                    <span class="label">Aufklärungsquote</span>
+                    <span class="trend-down">&#9650; 87%</span>
+                </div>
+                <div class="crime-stat-row">
+                    <span class="label">Gewaltdelikte</span>
+                    <span class="trend-down">&#9660; 6%</span>
+                </div>
+                <div class="crime-stat-row">
+                    <span class="label">Eigentumsdelikte</span>
+                    <span class="trend-down">&#9660; 4%</span>
+                </div>
+                <div class="crime-stat-row">
+                    <span class="label">Verkehrskontrollen</span>
+                    <span class="trend-up">&#9650; 9%</span>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Department in Zahlen</h3>
+                <ul class="fact-list">
+                    <li><span class="fact-key">Gegründet</span><span class="fact-val">1869</span></li>
+                    <li><span class="fact-key">Divisions</span><span class="fact-val">21</span></li>
+                    <li><span class="fact-key">Bureaus</span><span class="fact-val">4</span></li>
+                    <li><span class="fact-key">Hauptwache</span><span class="fact-val">Central</span></li>
+                    <li><span class="fact-key">Bereitschaft</span><span class="fact-val">24 / 7</span></li>
                 </ul>
             </div>
 
@@ -837,14 +2030,14 @@
                 </div>
                 <a href="https://discord.gg/KbVJKrfhVP" class="action-button" target="_blank">Über Discord bewerben</a>
             </div>
-            
+
         </aside>
 
     </main>
 
     <footer class="main-footer">
         <div class="footer-grid">
-            
+
             <div class="footer-col">
                 <h3>Über das Department</h3>
                 <p>Zuständig für die Sicherheit von über 4 Millionen Einwohnern im Stadtgebiet von Los Angeles.</p>
@@ -859,7 +2052,22 @@
                 <ul>
                     <li><a href="#home">Startseite</a></li>
                     <li><a href="#leitung">Leitung</a></li>
-                    <li><a href="#roster">Dienstplan</a></li>
+                    <li><a href="#roster">Personal</a></li>
+                    <li><a href="#divisions">Divisions</a></li>
+                    <li><a href="#einheiten">Einheiten</a></li>
+                    <li><a href="#raenge">Ränge</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Bereiche</h3>
+                <ul>
+                    <li><a href="#organisation">Organisation</a></li>
+                    <li><a href="#geschichte">Geschichte</a></li>
+                    <li><a href="#station">Dienststelle</a></li>
+                    <li><a href="#join">Karriere</a></li>
+                    <li><a href="#faq">Häufige Fragen</a></li>
+                    <li><a href="#news">Presse</a></li>
                 </ul>
             </div>
 
@@ -871,26 +2079,17 @@
                 <p style="margin-top: 10px;"><a href="https://discord.gg/KbVJKrfhVP" target="_blank" style="text-decoration: underline;">Discord Server</a></p>
             </div>
 
-            <div class="footer-col">
-                <h3>Rechtliches</h3>
-                <ul>
-                    <li><a href="#">Datenschutz</a></li>
-                    <li><a href="#">Impressum</a></li>
-                    <li><a href="#">Nutzungsbedingungen</a></li>
-                </ul>
-            </div>
-
         </div>
 
         <div class="disclaimer-area">
             <div class="disclaimer-card">
-                <p><span class="disclaimer-label">WICHTIGER HINWEIS:</span> Dies ist eine fiktionale Webseite für den Roleplay-Server „Night of Roleplay“ (NO-RP). Keine Verbindung zum echten Los Angeles Police Department. Alle Inhalte, Charaktere und Interaktionen dienen ausschließlich dem Rollenspiel. Keine der hier dargestellten Informationen ist real.</p>
+                <p><span class="disclaimer-label">WICHTIGER HINWEIS:</span> Dies ist eine fiktionale Webseite für den Roleplay-Server &bdquo;Night of Roleplay&ldquo; (NO-RP). Keine Verbindung zum echten Los Angeles Police Department. Alle Inhalte, Charaktere und Interaktionen dienen ausschließlich dem Rollenspiel. Keine der hier dargestellten Informationen ist real.</p>
             </div>
         </div>
 
         <div class="footer-credits">
             <p>© 2026 Night of Roleplay — LAPD Roleplay Division.</p>
-            <p class="footer-motto">„Zu schützen und zu dienen“</p>
+            <p class="footer-motto">&bdquo;Zu schützen und zu dienen&ldquo;</p>
         </div>
     </footer>
 
